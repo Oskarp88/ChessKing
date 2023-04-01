@@ -1,4 +1,5 @@
-import { Piece, Position, samePosition, TeamType } from "../../Constants";
+import { Position, samePosition, TeamType } from "../../Constants";
+import { Piece } from "../../models/Piece";
 
 export const tilesIsEmptyOrOccupiedByOpponent = (position: Position, boardState: Piece[], team: TeamType) => {
     return (!tileIsOccupied(position, boardState) || tileIsOccupiedByOpponent(position, boardState, team));

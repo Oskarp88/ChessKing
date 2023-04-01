@@ -1,3 +1,5 @@
+import { Piece } from "./models/Piece";
+
 export const VERTICAL_AXIS = ["1","2","3","4","5","6","7","8"];
 export const HORIZONTAL_AXIS = ["a","b","c","d","e","f","g","h"];
 
@@ -10,16 +12,6 @@ export function samePosition(p1: Position, p2: Position){
 export interface Position {
     x: number;
     y: number;
-}
-
-
-export interface Piece {
-    image: string;
-    position: Position;
-    type: PieceType;
-    team: TeamType;
-    enPassant?: boolean;
-    posibleMoves?: Position[];
 }
 
 export enum PieceType {

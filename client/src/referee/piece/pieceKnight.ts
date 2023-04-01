@@ -1,5 +1,6 @@
-import { Piece, Position, TeamType } from "../../Constants";
-import { tileIsOccupied, tilesIsEmptyOrOccupiedByOpponent } from "./generatePiece";
+import { Position, TeamType } from "../../Constants";
+import { Piece } from "../../models/Piece";
+import {  tilesIsEmptyOrOccupiedByOpponent } from "./generatePiece";
 
 export const knigthMove = (initialPosition: Position, desiredPosition: Position, team: TeamType, boardState: Piece[]): boolean => {
     //movimiento del caballo
