@@ -29,292 +29,228 @@ export enum TeamType{
 }
 
 export const initialBoardState: Piece[] = [
-    {
-        image: `assets/images/Chess_rlt60.png`,
-        position:{
+    new Piece(`assets/images/Chess_rlt60.png`,
+        {
             x: 7,
             y: 0,
         },
-        type: PieceType.ROOK,
-        team: TeamType.OUR,
-    },
-    {
-        image: `assets/images/Chess_rlt60.png`,
-        position:{
+        PieceType.ROOK,
+        TeamType.OUR),
+    new Piece(`assets/images/Chess_rlt60.png`,
+        {
             x: 0,
             y: 0,
         },
-        type: PieceType.ROOK,
-        team: TeamType.OUR,  
-    },
-    {
-        image: `assets/images/Chess_nlt60.png`,
-        position: {
+        PieceType.ROOK,
+        TeamType.OUR,  ),
+    new Piece(`assets/images/Chess_nlt60.png`,
+        {
             x: 1,
             y: 0,
         },
-        type: PieceType.KNIGTH,
-        team: TeamType.OUR,  
-    },{
-        image: `assets/images/Chess_nlt60.png`,
-        position: {
+        PieceType.KNIGTH,
+        TeamType.OUR, ),
+    new Piece(`assets/images/Chess_nlt60.png`,
+        {
             x: 6,
             y: 0,
         },
-        type: PieceType.KNIGTH,
-        team: TeamType.OUR,  
-    },
-    {
-        image: `assets/images/Chess_blt60.png`,
-        position: {
+        PieceType.KNIGTH,
+        TeamType.OUR, ),
+    new Piece(`assets/images/Chess_blt60.png`,
+        {
             x: 2,
             y: 0,
         },
-        type: PieceType.BISHOP,
-        team: TeamType.OUR,  
-    },
-    {
-        image: `assets/images/Chess_blt60.png`,
-        position: {
+        PieceType.BISHOP,
+        TeamType.OUR,  ),
+    new Piece(`assets/images/Chess_blt60.png`,
+        {
             x: 5,
             y: 0,
         },
-        type: PieceType.BISHOP,
-        team: TeamType.OUR,  
-    },
-    {
-        image: `assets/images/Chess_qlt60.png`,
-        position: {
+        PieceType.BISHOP,
+        TeamType.OUR, ),
+    new Piece(`assets/images/Chess_qlt60.png`,
+        {
             x: 3,
             y: 0,
         },
-        type: PieceType.QUEEN,
-        team: TeamType.OUR,  
-    },
+        PieceType.QUEEN,
+        TeamType.OUR,  ),
+    new Piece(`assets/images/Chess_klt60.png`,
     {
-        image: `assets/images/Chess_klt60.png`,
-        position: {
-            x: 4,
-            y: 0,
-        },
-        type: PieceType.KING,
-        team: TeamType.OUR,  
+        x: 4,
+        y: 0,
     },
-    {
-        image: `assets/images/Chess_rdt60.png`,
-        position: {
+        PieceType.KING,
+        TeamType.OUR, ),
+    new Piece(`assets/images/Chess_rdt60.png`,
+        {
             x: 7,
             y: 7,
         },
-        type: PieceType.ROOK,
-        team: TeamType.OPPONENT,  
-    },
-    {
-        image: `assets/images/Chess_rdt60.png`,
-        position: {
+        PieceType.ROOK,
+        TeamType.OPPONENT),
+    new Piece(`assets/images/Chess_rdt60.png`,
+        {
             x: 0,
             y: 7,
         },
-        type: PieceType.ROOK,
-        team: TeamType.OPPONENT,  
-    },
-    {
-        image: `assets/images/Chess_ndt60.png`,
-        position: {
+        PieceType.ROOK,
+        TeamType.OPPONENT),
+    new Piece(`assets/images/Chess_ndt60.png`,
+        {
             x: 1,
             y: 7,
         },
-        type: PieceType.KNIGTH,
-        team: TeamType.OPPONENT,  
-    },
-    {
-        image: `assets/images/Chess_ndt60.png`,
-        position: {
+        PieceType.KNIGTH,
+        TeamType.OPPONENT),
+    new Piece(`assets/images/Chess_ndt60.png`,
+        {
             x: 6,
             y: 7,
         },
-        type: PieceType.KNIGTH,
-        team: TeamType.OPPONENT,  
-    },
-    {
-        image: `assets/images/Chess_bdt60.png`,
-        position: {
+        PieceType.KNIGTH,
+        TeamType.OPPONENT),
+    new Piece(`assets/images/Chess_bdt60.png`,
+        {
             x: 2,
             y: 7,
         },
-        type: PieceType.BISHOP,
-        team: TeamType.OPPONENT,  
-    },
-    {
-        image: `assets/images/Chess_bdt60.png`,
-        position: {
+        PieceType.BISHOP,
+        TeamType.OPPONENT),
+    new Piece(`assets/images/Chess_bdt60.png`,
+        {
             x: 5,
             y: 7,
         },
-        type: PieceType.BISHOP,
-        team: TeamType.OPPONENT,  
-    },
-    {
-        image: `assets/images/Chess_qdt60.png`,
-        position: {
+        PieceType.BISHOP,
+        TeamType.OPPONENT),
+    new Piece(`assets/images/Chess_qdt60.png`,
+        {
             x: 3,
             y: 7,
         },
-        type: PieceType.QUEEN,
-        team: TeamType.OPPONENT,  
-    },
-    {
-        image: `assets/images/Chess_kdt60.png`,
-        position: {
+        PieceType.QUEEN,
+        TeamType.OPPONENT),
+    new Piece(`assets/images/Chess_kdt60.png`,
+        {
             x: 4,
             y: 7,
         },
-        type: PieceType.KING,
-        team: TeamType.OPPONENT,  
-    },
-    {
-        image: `assets/images/Chess_plt60.png`,
-        position: {
+        PieceType.KING,
+        TeamType.OPPONENT),
+    new Piece(`assets/images/Chess_plt60.png`,
+        {
             x: 0,
             y: 1,
         },
-        type: PieceType.PAWN,
-        team: TeamType.OUR,  
-    },
-    {
-        image: `assets/images/Chess_plt60.png`,
-        position: {
+        PieceType.PAWN,
+        TeamType.OUR),
+    new Piece(`assets/images/Chess_plt60.png`,
+        {
             x: 1,
             y: 1,
         },
-        type: PieceType.PAWN,
-        team: TeamType.OUR,  
-    },
-    {
-        image: `assets/images/Chess_plt60.png`,
-        position: {
+        PieceType.PAWN,
+        TeamType.OUR),
+    new Piece(`assets/images/Chess_plt60.png`,
+        {
             x: 2,
             y: 1,
         },
-        type: PieceType.PAWN,
-        team: TeamType.OUR,  
-    },
-    {
-        image: `assets/images/Chess_plt60.png`,
-        position: {
+        PieceType.PAWN,
+        TeamType.OUR),
+    new Piece(`assets/images/Chess_plt60.png`,
+        {
             x: 3,
             y: 1,
         },
-        type: PieceType.PAWN,
-        team: TeamType.OUR,  
-    },
-    {
-        image: `assets/images/Chess_plt60.png`,
-        position: {
+        PieceType.PAWN,
+        TeamType.OUR),
+    new Piece(`assets/images/Chess_plt60.png`,
+        {
             x: 4,
             y: 1,
         },
-        type: PieceType.PAWN,
-        team: TeamType.OUR,  
-    },
-    {
-        image: `assets/images/Chess_plt60.png`,
-        position: {
+        PieceType.PAWN,
+        TeamType.OUR),
+    new Piece(`assets/images/Chess_plt60.png`,
+        {
             x: 5,
             y: 1,
         },
-        type: PieceType.PAWN,
-        team: TeamType.OUR,  
-    },
-    {
-        image: `assets/images/Chess_plt60.png`,
-        position: {
+        PieceType.PAWN,
+        TeamType.OUR),
+    new Piece(`assets/images/Chess_plt60.png`,
+        {
             x: 6,
             y: 1,
         },
-        type: PieceType.PAWN,
-        team: TeamType.OUR,  
-    },
-    {
-        image: `assets/images/Chess_plt60.png`,
-        position: {
+        PieceType.PAWN,
+        TeamType.OUR),
+    new Piece(`assets/images/Chess_plt60.png`,
+        {
             x: 7,
             y: 1,
         },
-        type: PieceType.PAWN,
-        team: TeamType.OUR,  
-    },
-    {
-        image: `assets/images/Chess_pdt60.png`,
-        position: {
+        PieceType.PAWN,
+        TeamType.OUR),
+    new Piece(`assets/images/Chess_plt60.png`,
+        {
             x: 0,
             y: 6,
         },
-        type: PieceType.PAWN,
-        team: TeamType.OPPONENT,  
-    },
-    {
-        image: `assets/images/Chess_pdt60.png`,
-        position: {
+        PieceType.PAWN,
+        TeamType.OPPONENT),
+    new Piece(`assets/images/Chess_plt60.png`,
+        {
             x: 1,
             y: 6,
         },
-        type: PieceType.PAWN,
-        team: TeamType.OPPONENT,  
-    },
-    {
-        image: `assets/images/Chess_pdt60.png`,
-        position: {
+        PieceType.PAWN,
+        TeamType.OPPONENT),
+    new Piece(`assets/images/Chess_plt60.png`,
+        {
             x: 2,
             y: 6,
         },
-        type: PieceType.PAWN,
-        team: TeamType.OPPONENT,  
-    },
-    {
-        image: `assets/images/Chess_pdt60.png`,
-        position: {
+        PieceType.PAWN,
+        TeamType.OPPONENT),
+    new Piece(`assets/images/Chess_plt60.png`,
+        {
             x: 3,
             y: 6,
         },
-        type: PieceType.PAWN,
-        team: TeamType.OPPONENT,  
-    },
-    {
-        image: `assets/images/Chess_pdt60.png`,
-        position: {
+        PieceType.PAWN,
+        TeamType.OPPONENT),
+    new Piece(`assets/images/Chess_plt60.png`,
+        {
             x: 4,
             y: 6,
         },
-        type: PieceType.PAWN,
-        team: TeamType.OPPONENT,  
-    },
-    {
-        image: `assets/images/Chess_pdt60.png`,
-        position: {
+        PieceType.PAWN,
+        TeamType.OPPONENT),
+    new Piece(`assets/images/Chess_plt60.png`,
+        {
             x: 5,
             y: 6,
         },
-        type: PieceType.PAWN,
-        team: TeamType.OPPONENT,  
-    },
-    {
-        image: `assets/images/Chess_pdt60.png`,
-        position: {
+        PieceType.PAWN,
+        TeamType.OPPONENT),
+    new Piece(`assets/images/Chess_plt60.png`,
+        {
             x: 6,
             y: 6,
         },
-        type: PieceType.PAWN,
-        team: TeamType.OPPONENT,  
-    },
-    {
-        image: `assets/images/Chess_pdt60.png`,
-        position: {
+        PieceType.PAWN,
+        TeamType.OPPONENT),
+    new Piece(`assets/images/Chess_plt60.png`,
+        {
             x: 7,
             y: 6,
         },
-        type: PieceType.PAWN,
-        team: TeamType.OPPONENT,  
-    },
-
+        PieceType.PAWN,
+        TeamType.OPPONENT),
 ];

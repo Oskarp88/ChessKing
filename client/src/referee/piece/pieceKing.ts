@@ -3,8 +3,8 @@ import { Piece } from "../../models/Piece";
 import { tileIsOccupied, tileIsOccupiedByOpponent } from "./generatePiece";
 
 export const kingMove = (initialPosition: Position, desiredPosition: Position, team: TeamType, boardState: Piece[]): boolean => {
-    console.log(`desiredX: ${desiredPosition.x} - initialX ${initialPosition.x} === ? && desiretY ${desiredPosition.y} - initialY ${initialPosition.y} === ?`);
-    console.log('Rey');
+    // console.log(`desiredX: ${desiredPosition.x} - initialX ${initialPosition.x} === ? && desiretY ${desiredPosition.y} - initialY ${initialPosition.y} === ?`);
+    // console.log('Rey');
     const array = [{x:'a'},{x:'b'},{x:'c'},{x:'d'},{x:'e'},{x:'f'},{x:'g'},{x:'h'}];
     for (let i = 0; i < array.length; i++) {
         if(i === initialPosition.x ){
