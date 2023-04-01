@@ -1,5 +1,6 @@
-import { Position, TeamType } from "../../Constants";
+import { TeamType } from "../../Constants";
 import { Piece } from "../../models/Piece";
+import { Position } from "../../models/Position";
 import {  tilesIsEmptyOrOccupiedByOpponent } from "./generatePiece";
 
 export const knigthMove = (initialPosition: Position, desiredPosition: Position, team: TeamType, boardState: Piece[]): boolean => {

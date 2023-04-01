@@ -5,10 +5,10 @@ import {
     VERTICAL_AXIS, 
     HORIZONTAL_AXIS, 
     GRID_SIZE,     
-    Position ,
     samePosition
 } from '../../Constants';
 import { Piece } from '../../models/Piece';
+import { Position } from '../../models/Position';
 
 interface Props {
     playMove: (piece: Piece, position: Position) => boolean;
