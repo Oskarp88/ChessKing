@@ -1,4 +1,4 @@
-import { initialBoardState, PieceType, samePosition, TeamType } from "../../Constants";
+import { initialBoardState, PieceType, TeamType } from "../../Constants";
 import ChessBoard from "../chessboard/ChessBoard";
 import {useState, useRef, useEffect } from 'react';
 import { bishopMove, 
@@ -11,8 +11,8 @@ import { bishopMove,
         kingMove, knigthMove, 
         pawnMove, queenMove, 
         rookMove } from "../../referee/piece";
-import { Piece } from "../../models/Piece";
-import { Position } from "../../models/Position";
+import { Piece, Position } from "../../models";
+
 
 export default function Referee(){
     const [pieces, setPieces] = useState<Piece[]>(initialBoardState);
@@ -52,12 +52,12 @@ export default function Referee(){
 
         if(enPassantMove){
            const updatePieces = pieces.reduce((results, piece)=>{
-            if(samePosition(piece.position, playedPiece.position)){
+            if(piece.samePiecePosition(playedPiece)){
                 piece.enPassant = false;
                 piece.position.x = destination.x;
                 piece.position.y = destination.y;
                 results.push(piece);
-            }else if(!samePosition(piece.position, {x: destination.x, y: destination.y-pawnDirection})){
+            }else if(!piece.samePosition(new Position(destination.x, destination.y-pawnDirection))){
                 if(piece.type === PieceType.PAWN){
                     piece.enPassant = false;
                  }
@@ -72,7 +72,7 @@ export default function Referee(){
 
         }else if(validMove){
             const updatePieces = pieces.reduce((results, piece) => {
-            if(samePosition(piece.position, playedPiece.position)){
+            if(piece.samePiecePosition(playedPiece)){
             
                 piece.enPassant = Math.abs(playedPiece.position.y-destination.y) === 2 && piece.type === PieceType.PAWN
                 piece.position.x = destination.x;
@@ -86,7 +86,7 @@ export default function Referee(){
                     console.log("this piece is up for promotion")
                 }
                 results.push(piece);
-            }else if(!(samePosition(piece.position, {x: destination.x, y: destination.y}))){
+            }else if(!(piece.samePosition(new Position(destination.x, destination.y)))){
                  if(piece.type === PieceType.PAWN){
                     piece.enPassant = false;
                  }
@@ -177,7 +177,7 @@ export default function Referee(){
     function promotePawn(pieceType: PieceType){
         if(promotionPawn === undefined) return;
         const updatePieces = pieces.reduce((results, piece) => {
-            if(samePosition(piece.position, promotionPawn.position)){
+            if(piece.samePiecePosition(promotionPawn)){
                piece.type = pieceType;
                const teamType = (piece.team === TeamType.OUR) ? "l" : "d";
                let image = "";

@@ -1,6 +1,5 @@
 import { TeamType } from "../../Constants";
-import { Piece } from "../../models/Piece";
-import { Position } from "../../models/Position";
+import { Piece, Position } from "../../models";
 import {  tilesIsEmptyOrOccupiedByOpponent } from "./generatePiece";
 
 export const knigthMove = (initialPosition: Position, desiredPosition: Position, team: TeamType, boardState: Piece[]): boolean => {
@@ -40,8 +39,8 @@ export const getPossibleKnigthMoves = (knigth: Piece, boardState: Piece[]): Posi
     
     for(let i = -1; i < 2; i += 2){
         for(let j = -1; j < 2; j += 2){
-           const verticalMove: Position = {x: knigth.position.x + j, y: knigth.position.y + i * 2};
-           const horizontalMove: Position = {x: knigth.position.x + i * 2, y: knigth.position.y + j};
+           const verticalMove = new Position(knigth.position.x + j, knigth.position.y + i * 2);
+           const horizontalMove = new Position(knigth.position.x + i * 2, knigth.position.y + j);
 
            if(tilesIsEmptyOrOccupiedByOpponent(verticalMove, boardState, knigth.team)){
               possibleMoves.push(verticalMove);
