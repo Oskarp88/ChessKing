@@ -1,4 +1,4 @@
-import { initialBoardState, PieceType, TeamType } from "../../Constants";
+import { initialBoardState } from "../../Constants";
 import ChessBoard from "../chessboard/ChessBoard";
 import {useState, useRef, useEffect } from 'react';
 import { bishopMove, 
@@ -12,6 +12,7 @@ import { bishopMove,
         pawnMove, queenMove, 
         rookMove } from "../../referee/piece";
 import { Piece, Position } from "../../models";
+import { PieceType, TeamType } from "../../Types";
 
 
 export default function Referee(){
