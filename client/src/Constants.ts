@@ -1,6 +1,7 @@
 import { PieceType, TeamType } from "./Types";
 import { Piece, Position } from "./models";
 import { Board } from "./models/Board";
+import { Pawn } from "./models/Pawn";
 
 export const VERTICAL_AXIS = ["1","2","3","4","5","6","7","8"];
 export const HORIZONTAL_AXIS = ["a","b","c","d","e","f","g","h"];
@@ -89,84 +90,68 @@ export const initialBoard: Board = new Board([
         PieceType.KING,
         TeamType.OPPONENT,
         false),
-    new Piece(
+    new Pawn(
         new Position(0, 1),
-        PieceType.PAWN,
         TeamType.OUR,
         false),
-    new Piece(
+    new Pawn(
         new Position(1, 1),
-        PieceType.PAWN,
         TeamType.OUR,
         false),
-    new Piece(
+    new Pawn(
         new Position(2, 1),
-        PieceType.PAWN,
         TeamType.OUR,
         false),
-    new Piece(
+    new Pawn(
         new Position(3, 1),
-        PieceType.PAWN,
         TeamType.OUR,
         false),
-    new Piece(
+    new Pawn(
         new Position(4, 1),
-        PieceType.PAWN,
         TeamType.OUR,
         false),
-    new Piece(
+    new Pawn(
         new Position(5, 1),
-        PieceType.PAWN,
         TeamType.OUR,
         false),
-    new Piece(
+    new Pawn(
         new Position(6, 1),
-        PieceType.PAWN,
         TeamType.OUR,
         false),
-    new Piece(
+    new Pawn(
         new Position(7, 1),
-        PieceType.PAWN,
         TeamType.OUR,
         false),
-    new Piece(
+    new Pawn(
         new Position(0, 6),
-        PieceType.PAWN,
         TeamType.OPPONENT,
         false),
-    new Piece(
+    new Pawn(
         new Position(1, 6),
-        PieceType.PAWN,
         TeamType.OPPONENT,
         false),
-    new Piece(
+    new Pawn(
         new Position(2, 6),
-        PieceType.PAWN,
         TeamType.OPPONENT,
         false),
-    new Piece(
+    new Pawn(
         new Position(3, 6),
-        PieceType.PAWN,
         TeamType.OPPONENT,
         false),
-    new Piece(
+    new Pawn(
         new Position(4, 6),
-        PieceType.PAWN,
         TeamType.OPPONENT,
         false),
-    new Piece(
+    new Pawn(
         new Position(5, 6),
-        PieceType.PAWN,
         TeamType.OPPONENT,
         false),
-    new Piece(
+    new Pawn(
         new Position(6, 6),
-        PieceType.PAWN,
         TeamType.OPPONENT,
         false),
-    new Piece(
+    new Pawn(
         new Position(7, 6),
-        PieceType.PAWN,
         TeamType.OPPONENT,
         false),
 ], 1);

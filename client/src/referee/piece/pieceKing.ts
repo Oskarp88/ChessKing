@@ -1,6 +1,6 @@
 import {TeamType } from "../../Types";
 import { Piece, Position } from "../../models";
-import { tileIsOccupied, tileIsOccupiedByOpponent } from "./generatePiece";
+import { tileIsOccupied, tileIsOccupiedByOpponent, tilesIsEmptyOrOccupiedByOpponent } from "./generatePiece";
 
 export const kingMove = (initialPosition: Position, desiredPosition: Position, team: TeamType, boardState: Piece[]): boolean => {
     // console.log(`desiredX: ${desiredPosition.x} - initialX ${initialPosition.x} === ? && desiretY ${desiredPosition.y} - initialY ${initialPosition.y} === ?`);
@@ -15,32 +15,21 @@ export const kingMove = (initialPosition: Position, desiredPosition: Position, t
         }
     }
 
-    let multiplierX;
-    let multiplierY;
+    for(let i = 1; i < 2; i++){
 
-    if(desiredPosition.x < initialPosition.x){
-        multiplierX = -1;
-    }else if(desiredPosition.x > initialPosition.x){
-        multiplierX = 1;
-    }else{
-        multiplierX = 0;
-    }
+        let multiplierX = (desiredPosition.x < initialPosition.x) ? -1 : (desiredPosition.x > initialPosition.x) ? 1 : 0;
+        let multiplierY = (desiredPosition.y < initialPosition.y) ? -1 : (desiredPosition.y > initialPosition.y) ? 1 : 0;
 
-    if(desiredPosition.y < initialPosition.y){
-        multiplierY = -1;
-    }else if(desiredPosition.y > initialPosition.y){
-        multiplierY = 1;
-    }else{
-        multiplierY = 0;
-    }
+        let passedPosition = new Position(initialPosition.x + (i * multiplierX), initialPosition.y + (i * multiplierY))
 
-    if(desiredPosition.x - initialPosition.x === multiplierX && desiredPosition.y - initialPosition.y === multiplierY){
-        if(!tileIsOccupied(desiredPosition, boardState)){                   
-            return true;
-        }
-        if(tileIsOccupiedByOpponent(desiredPosition, boardState,team)){
-            //console.log('we can strike enemy');
-            return true;
+        if(passedPosition.samePosition(desiredPosition)){
+            if(tilesIsEmptyOrOccupiedByOpponent(passedPosition, boardState, team)){                   
+                return true;
+            }
+            if(tileIsOccupied(desiredPosition, boardState)){
+                //console.log('we can strike enemy');
+                return true;
+            }
         }
     }
    
@@ -146,5 +135,54 @@ export const getPossibleKingMoves = (king: Piece, boardState: Piece[]): Position
             break;
         }
     }
+    return posibleMoves;
+}
+
+export const getCastlingMoves = (king: Piece, boardState: Piece[]): Position[] => {
+    const posibleMoves: Position[] = [];
+
+    if(king.hasMoved) return posibleMoves;
+
+    //we get the rooks from the king's team which haven't moved
+    const rooks = boardState.filter(p => p.isRook && p.team === king.team && !p.hasMoved);
+
+    //Loop through the rooks
+    for(const rook of rooks){
+        //determine if we need to go to the right or the left side
+        const direction = (rook.position.x - king.position.x > 0) ? 1 : -1;
+
+        const adjecentPosition = king.position.clone();
+        adjecentPosition.x += direction;
+
+        if(!rook.posibleMoves?.some(m=>m.samePosition(adjecentPosition))) continue;
+
+        //we know that the rook can  move to the adjacent side of the king
+
+        const conceringTiles = rook.posibleMoves.filter(m=>m.y===king.position.y);
+
+        //Checking if any of the enemy pieces can attack the spaces between
+        //the rook and the king
+        const enemyPieces = boardState.filter(p=> p.team !== king.team);
+
+        let valid = true;
+
+        for(const enemy of enemyPieces){
+            if(enemy.posibleMoves === undefined) continue; 
+
+            for(const move of enemy.posibleMoves){
+                if(conceringTiles.some(t => t.samePosition(move))){
+                    valid = false;
+                }
+
+                if(!valid) break;
+            }
+
+            if(!valid) break;
+        }
+
+        if(!valid) break;
+    
+    }
+
     return posibleMoves;
 }
