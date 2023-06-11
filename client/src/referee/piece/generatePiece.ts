@@ -6,9 +6,11 @@ export const tilesIsEmptyOrOccupiedByOpponent = (position: Position, boardState:
     return (!tileIsOccupied(position, boardState) || tileIsOccupiedByOpponent(position, boardState, team));
  }
 
-export const tileIsOccupied = (position: Position, boardState: Piece[]): boolean => {
+export const tileIsOccupied = (
+    position: Position, 
+    boardState: Piece[]): boolean => {
      // console.log('Casilla ocupada');
-     const piece = boardState.find((p) => p.position.samePosition(position));
+     const piece = boardState.find((p) => p.samePosition(position));
      if(piece){
          return true;
      }else{
@@ -16,11 +18,19 @@ export const tileIsOccupied = (position: Position, boardState: Piece[]): boolean
      }
  }
 
- export const tileIsOccupiedByOpponent = (position: Position, boardState: Piece[], team:TeamType): boolean => {
-    const piece = boardState.find((p)=> p.position.samePosition(position) && p.team !== team)
+ export const tileIsOccupiedByOpponent = (
+    position: Position, 
+    boardState: Piece[], 
+    team:TeamType
+    ): boolean => {
+    const piece = boardState.find((p)=> 
+      p.samePosition(position) && p.team !== team);
+
     if(piece){
         return true;
      }else{
          return false
      }
  }
+
+ 

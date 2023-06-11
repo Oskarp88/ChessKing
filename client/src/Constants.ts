@@ -1,5 +1,6 @@
 import { PieceType, TeamType } from "./Types";
-import { Piece, Position } from "./models";
+import { Piece} from "./models/Piece";
+import { Position } from "./models/Position";
 import { Board } from "./models/Board";
 import { Pawn } from "./models/Pawn";
 
@@ -155,3 +156,5 @@ export const initialBoard: Board = new Board([
         TeamType.OPPONENT,
         false),
 ], 1);
+
+initialBoard.calculateAllMoves();

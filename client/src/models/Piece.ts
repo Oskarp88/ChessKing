@@ -8,7 +8,8 @@ export class Piece {
     team: TeamType;
     posibleMoves?: Position[];
     hasMoved: boolean;
-    constructor( position: Position, 
+    constructor( 
+        position: Position, 
         type: PieceType, 
         team: TeamType, 
         hasMoved: boolean, 

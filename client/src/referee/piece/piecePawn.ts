@@ -1,4 +1,4 @@
-import { PieceType, TeamType } from "../../Types";
+import {TeamType } from "../../Types";
 import { Piece, Position } from "../../models";
 import { Pawn } from "../../models/Pawn";
 import { tileIsOccupied, tileIsOccupiedByOpponent } from "./generatePiece";
@@ -18,18 +18,22 @@ export const pawnMove = (initialPosition: Position, desiredPosition: Position, t
     const specialRow = (team === TeamType.OUR) ? 1 : 6;
     const pawnDirection = (team === TeamType.OUR) ? 1 : -1;
 
-    if(initialPosition.x === desiredPosition.x && initialPosition.y === specialRow && desiredPosition.y - initialPosition.y === 2*pawnDirection){
+    if(initialPosition.x === desiredPosition.x && 
+        initialPosition.y === specialRow && 
+        desiredPosition.y - initialPosition.y === 2*pawnDirection){
         if(!tileIsOccupied(desiredPosition,boardState) && 
         !tileIsOccupied(new Position(desiredPosition.x, desiredPosition.y - pawnDirection),boardState)){
             return true;
         }
-    }else if(initialPosition.x === desiredPosition.x && desiredPosition.y - initialPosition.y === pawnDirection){
+    }else if(initialPosition.x === desiredPosition.x && 
+        desiredPosition.y - initialPosition.y === pawnDirection){
         if(!tileIsOccupied(desiredPosition, boardState)){                   
             return true;
         }
     }  
     //atacar piezar
-    else if(desiredPosition.x - initialPosition.x === -1 && desiredPosition.y - initialPosition.y === pawnDirection){
+    else if(desiredPosition.x - initialPosition.x === -1 && 
+        desiredPosition.y - initialPosition.y === pawnDirection){
         
         //ataque izquierda
         console.log('izquierda');
@@ -37,7 +41,8 @@ export const pawnMove = (initialPosition: Position, desiredPosition: Position, t
             //console.log('we can strike enemy');
             return true;
         }
-    } else if(desiredPosition.x - initialPosition.x === 1 && desiredPosition.y - initialPosition.y === pawnDirection){
+    } else if(desiredPosition.x - initialPosition.x === 1 && 
+        desiredPosition.y - initialPosition.y === pawnDirection){
         //ataque por la derecha
         console.log('derecha');
         if(tileIsOccupiedByOpponent(desiredPosition, boardState,team)){

@@ -10,7 +10,7 @@
     height: 75px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 60px;
+    background-size: 70px;
 
 }
 
@@ -32,7 +32,7 @@
 }
 
 .tile img{
-    width: 60px;
+    width: 70px;
 }
 
 .tile-highlight:not(.chess-piece-tile)::before{

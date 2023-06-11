@@ -23,14 +23,16 @@ export const kingMove = (initialPosition: Position, desiredPosition: Position, t
         let passedPosition = new Position(initialPosition.x + (i * multiplierX), initialPosition.y + (i * multiplierY))
 
         if(passedPosition.samePosition(desiredPosition)){
-            if(tilesIsEmptyOrOccupiedByOpponent(passedPosition, boardState, team)){                   
+            if(tilesIsEmptyOrOccupiedByOpponent(passedPosition, boardState, team)){                 
                 return true;
             }
+         }else {
             if(tileIsOccupied(desiredPosition, boardState)){
-                //console.log('we can strike enemy');
-                return true;
+                //console.log('we can strike enemy');           
+                break;
             }
         }
+        
     }
    
     return false;
@@ -38,10 +40,17 @@ export const kingMove = (initialPosition: Position, desiredPosition: Position, t
 
 export const getPossibleKingMoves = (king: Piece, boardState: Piece[]): Position[] => {
     const posibleMoves: Position[] = [];
-    
+    // Movimiento superior
     for(let i = 1; i < 2; i++){
         const destination = new Position(king.position.x, king.position.y + i)
-
+         
+        // If the move is outside of the board don't add it
+        // Si el movimiento está fuera del tablero, no lo agregue
+        if(destination.x < 0 || destination.x > 7 
+            || destination.y < 0 || destination.y > 7) {
+              break;
+          }
+      
         if(!tileIsOccupied(destination, boardState)){
             posibleMoves.push(destination);
         }else if(tileIsOccupiedByOpponent(destination, boardState, king.team)){
@@ -51,9 +60,16 @@ export const getPossibleKingMoves = (king: Piece, boardState: Piece[]): Position
             break;
         }
     }
+    // Movimiento de fondo
     for(let i = 1; i < 2; i++){
         const destination = new Position(king.position.x, king.position.y - i)
 
+        // Si el movimiento está fuera del tablero, no lo agregue
+        if(destination.x < 0 || destination.x > 7 
+            || destination.y < 0 || destination.y > 7) {
+              break;
+          }
+
         if(!tileIsOccupied(destination, boardState)){
             posibleMoves.push(destination);
         }else if(tileIsOccupiedByOpponent(destination, boardState, king.team)){
@@ -63,9 +79,15 @@ export const getPossibleKingMoves = (king: Piece, boardState: Piece[]): Position
             break;
         }
     }
+    // movimiento derecho
     for(let i = 1; i < 2; i++){
         const destination = new Position(king.position.x + i, king.position.y)
 
+        if(destination.x < 0 || destination.x > 7 
+            || destination.y < 0 || destination.y > 7) {
+              break;
+          }
+
         if(!tileIsOccupied(destination, boardState)){
             posibleMoves.push(destination);
         }else if(tileIsOccupiedByOpponent(destination, boardState, king.team)){
@@ -75,8 +97,14 @@ export const getPossibleKingMoves = (king: Piece, boardState: Piece[]): Position
             break;
         }
     }
+    //movimiento izquierdo
     for(let i = 1; i < 2; i++){
         const destination = new Position(king.position.x - i, king.position.y)
+        
+        if(destination.x < 0 || destination.x > 7 
+            || destination.y < 0 || destination.y > 7) {
+              break;
+          }
 
         if(!tileIsOccupied(destination, boardState)){
             posibleMoves.push(destination);
@@ -87,8 +115,15 @@ export const getPossibleKingMoves = (king: Piece, boardState: Piece[]): Position
             break;
         }
     }
+
+//Movimiento superior derecho
     for(let i = 1; i < 2; i++){
         const destination = new Position(king.position.x + i, king.position.y + i);
+        
+        if(destination.x < 0 || destination.x > 7 
+            || destination.y < 0 || destination.y > 7) {
+              break;
+          }
 
         if(!tileIsOccupied(destination, boardState)){
             posibleMoves.push(destination);
@@ -98,10 +133,15 @@ export const getPossibleKingMoves = (king: Piece, boardState: Piece[]): Position
         }else{
             break;
         }
-    }
+    }// Movimiento abajo a la derecha
     for(let i = 1; i < 2; i++){
         const destination = new Position(king.position.x + i, king.position.y - i);
 
+        if(destination.x < 0 || destination.x > 7 
+            || destination.y < 0 || destination.y > 7) {
+              break;
+          }
+      
         if(!tileIsOccupied(destination, boardState)){
             posibleMoves.push(destination);
         }else if(tileIsOccupiedByOpponent(destination, boardState, king.team)){
@@ -111,9 +151,15 @@ export const getPossibleKingMoves = (king: Piece, boardState: Piece[]): Position
             break;
         }
     }
+    //movimiento superior a la izquierda
     for(let i = 1; i < 2; i++){
         const destination = new Position(king.position.x - i, king.position.y + i);
 
+        if(destination.x < 0 || destination.x > 7 
+            || destination.y < 0 || destination.y > 7) {
+              break;
+          }
+      
         if(!tileIsOccupied(destination, boardState)){
             posibleMoves.push(destination);
         }else if(tileIsOccupiedByOpponent(destination, boardState, king.team)){
@@ -123,9 +169,15 @@ export const getPossibleKingMoves = (king: Piece, boardState: Piece[]): Position
             break;
         }
     }
+    //movimiento inferior a la izquierda
     for(let i = 1; i < 2; i++){
         const destination = new Position(king.position.x - i, king.position.y - i);
 
+        if(destination.x < 0 || destination.x > 7 
+            || destination.y < 0 || destination.y > 7) {
+              break;
+          }
+      
         if(!tileIsOccupied(destination, boardState)){
             posibleMoves.push(destination);
         }else if(tileIsOccupiedByOpponent(destination, boardState, king.team)){
@@ -138,17 +190,22 @@ export const getPossibleKingMoves = (king: Piece, boardState: Piece[]): Position
     return posibleMoves;
 }
 
+// En este método los movimientos enemigos ya han sido calculados
 export const getCastlingMoves = (king: Piece, boardState: Piece[]): Position[] => {
     const posibleMoves: Position[] = [];
 
     if(king.hasMoved) return posibleMoves;
 
     //we get the rooks from the king's team which haven't moved
-    const rooks = boardState.filter(p => p.isRook && p.team === king.team && !p.hasMoved);
+    //obtenemos las torres del equipo del rey que no se han movido
+    const rooks = boardState.filter(p => 
+        p.isRook && p.team === king.team && !p.hasMoved);
 
     //Loop through the rooks
+    //Recorrer las torres
     for(const rook of rooks){
         //determine if we need to go to the right or the left side
+        //determinar si necesitamos ir al lado derecho o al izquierdo
         const direction = (rook.position.x - king.position.x > 0) ? 1 : -1;
 
         const adjecentPosition = king.position.clone();
@@ -157,11 +214,13 @@ export const getCastlingMoves = (king: Piece, boardState: Piece[]): Position[] =
         if(!rook.posibleMoves?.some(m=>m.samePosition(adjecentPosition))) continue;
 
         //we know that the rook can  move to the adjacent side of the king
-
+        //sabemos que la torre puede moverse al lado adyacente del rey
         const conceringTiles = rook.posibleMoves.filter(m=>m.y===king.position.y);
 
         //Checking if any of the enemy pieces can attack the spaces between
         //the rook and the king
+        //Comprobando si alguna de las piezas enemigas puede atacar los espacios entre
+        //la torre y el rey
         const enemyPieces = boardState.filter(p=> p.team !== king.team);
 
         let valid = true;
@@ -181,6 +240,9 @@ export const getCastlingMoves = (king: Piece, boardState: Piece[]): Position[] =
         }
 
         if(!valid) break;
+
+        // ¡Ahora queremos agregarlo como un posible movimiento!
+        posibleMoves.push(rook.position.clone());
     
     }
 
