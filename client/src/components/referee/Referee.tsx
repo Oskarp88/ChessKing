@@ -15,6 +15,7 @@ import { Piece, Position } from "../../models";
 import { PieceType, TeamType } from "../../Types";
 import { Board } from "../../models/Board";
 import { Pawn } from "../../models/Pawn";
+import { useCheckMateContext } from "../../Context/checkMateContex";
 
 
 export default function Referee(){
@@ -22,7 +23,7 @@ export default function Referee(){
     const [promotionPawn, setPromotionPawn] = useState<Piece>();
     const modalRef = useRef<HTMLDivElement>(null);
     const checkmateModalRef = useRef<HTMLDivElement>(null);
-
+    const {setCheckMate} = useCheckMateContext()
     function playMove(playedPiece: Piece, destination: Position): boolean{
         //if the playing piece doesn´t have any moves return
         //si la pieza de juego no tiene ningún movimiento regresa
@@ -188,14 +189,15 @@ export default function Referee(){
     
     function restarGame() {
         checkmateModalRef.current?.classList.add('hidden');
+        setCheckMate({mate: true});
         setBoard(initialBoard.clone());
     }
     return(
        <>
-           <p style={{color: "white", fontSize: "24px", textAlign: 'center' }}>Total Turnos: {board.totalTurns -1}</p>
+           {/* <p style={{color: "white", fontSize: "24px", marginLeft: '20px' }}>Juegan {board.totalTurns % 2 === 0 ? 'Negras' : 'Blancas' }</p> */}
            <div className='modal hidden' ref={modalRef}>
              <div className='modal-body'>
-                <img onClick={() => promotePawn(PieceType.QUEEN)} src = {`/assets/images/Chess_q${promotionType()}t60.png`}/>
+                <img onClick={() => promotePawn(PieceType.QUEEN)} src = {`/assets/images/Chess_q${promotionType()}t60.png`} className="promote-body"/>
                 <img onClick={() => promotePawn(PieceType.ROOK)} src = {`/assets/images/Chess_r${promotionType()}t60.png`}/>
                 <img onClick={() => promotePawn(PieceType.BISHOP)} src = {`/assets/images/Chess_b${promotionType()}t60.png`}/>
                 <img onClick={() => promotePawn(PieceType.KNIGTH)} src = {`/assets/images/Chess_n${promotionType()}t60.png`}/>
@@ -204,14 +206,18 @@ export default function Referee(){
            <div className="modal hidden" ref={checkmateModalRef}>
             <div className="modal-body">
                 <div className="checkmate-body">
-                    <span>TThe winning team is {board.winningTeam === TeamType.OUR ? 'white' : 'black'} </span>
+                    <span>The winning team is {board.winningTeam === TeamType.OUR ? 'white' : 'black'} </span>
                     <button onClick={restarGame}>Play again</button>
                 </div>
             </div>
            </div>
-      <ChessBoard 
-                  playMove={playMove}
-                  pieces={board.pieces}/>
+            <ChessBoard 
+                playMove={playMove}
+                pieces={board.pieces}
+                whitePlayer="Player 1" 
+                blackPlayer="Player 2"
+            />
+                  
        </>
     )
 }

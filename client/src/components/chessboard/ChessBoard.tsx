@@ -7,22 +7,45 @@ import {
     GRID_SIZE,     
 } from '../../Constants';
 import { Piece, Position } from '../../models';
+import { useCheckMateContext } from '../../Context/checkMateContex';
+import { useChessboardContext } from '../../Context/boardContext';
 
 
 interface Props {
     playMove: (piece: Piece, position: Position) => boolean;
     pieces: Piece[];
+    whitePlayer: string;
+    blackPlayer: string;
 }
 
-export default function Chessboard({ playMove, pieces}: Props){
+const initialTime = 600;
+
+// Convierte el tiempo en segundos en un formato legible (por ejemplo, "MM:SS")
+const formatTime = (time: number) => {
+  const minutes = Math.floor(time / 60).toString().padStart(2, "0");
+  const seconds = (time % 60).toString().padStart(2, "0");
+  return `${minutes}:${seconds}`;
+};
+
+export default function Chessboard({ playMove, pieces, whitePlayer, blackPlayer}: Props){
   const [grabPosition, setGrabPosition] = useState<Position>(new Position(-1, -1));   
   const [activePiece, setActivePiece] = useState<HTMLElement | null>(null);
   const [isInvalidMove, setIsInvalidMove] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const [whiteMoveLog, setWhiteMoveLog] = useState<string[]>([]);
+  const [blackMoveLog, setBlackMoveLog] = useState<string[]>([]);
+  const {checkMate,setCheckMate} = useCheckMateContext();
+  const [whiteTime, setWhiteTime] = useState(initialTime);
+  const [blackTime, setBlackTime] = useState(initialTime);
+  const [isWhiteTurn, setIsWhiteTurn] = useState(true);
+  const {boardColor} = useChessboardContext();
 
-  const chessboardRef = useRef<HTMLDivElement>(null)
+  const chessboardRef = useRef<HTMLDivElement>(null);
+  const soundRef = useRef<HTMLAudioElement>(null);
+
 
   useEffect(() => {
+    
     const handleMouseUp = () => {
         if (isDragging) {
             // Reset the piece position
@@ -39,7 +62,53 @@ export default function Chessboard({ playMove, pieces}: Props){
     return () => {
         document.removeEventListener("mouseup", handleMouseUp);
     };
+    
 }, [isDragging, activePiece]);
+
+useEffect(() => {
+  if (checkMate.mate) {
+      setBlackMoveLog([]);
+      setWhiteMoveLog([]);
+  }
+
+  setCheckMate({mate: false})
+}, [checkMate.mate]);
+
+useEffect(() => {
+  let timer: NodeJS.Timeout | null = null;
+
+  if (whiteTime === 0 || blackTime === 0) {
+    // Uno de los jugadores se quedó sin tiempo, se puede manejar el final del juego aquí
+  }
+
+  if (whiteTime > 0 && blackTime > 0) {
+    // Cambiar de turno y actualizar el tiempo restante
+    if (isWhiteTurn) {
+      timer = setTimeout(() => {
+        setWhiteTime((prevTime) => prevTime - 1);
+      }, 1000);
+    } else {
+      timer = setTimeout(() => {
+        setBlackTime((prevTime) => prevTime - 1);
+      }, 1000);
+    }
+  }
+
+  return () => {
+    if (timer) {
+      clearTimeout(timer);
+    }
+  };
+}, [isWhiteTurn, whiteTime, blackTime]);
+
+useEffect(() => {
+  if (soundRef.current) {
+    soundRef.current.pause();
+    soundRef.current.currentTime = 0;
+  }
+}, [whiteMoveLog, blackMoveLog]);
+
+
   // para tocar la pieza
   // para tocar la pieza
 const grabPiece = (e: React.MouseEvent) => {
@@ -66,6 +135,7 @@ const grabPiece = (e: React.MouseEvent) => {
 
   //para mover la pieza
   const movePiece = (e: React.MouseEvent) => {
+    e.preventDefault();
       const chessboard = chessboardRef.current;
       if (activePiece && chessboard) { 
           const minX = chessboard.offsetLeft-18.75;
@@ -98,6 +168,7 @@ const grabPiece = (e: React.MouseEvent) => {
   //para soltar la pieza
   // para soltar la pieza
 const dropPiece = (e: React.MouseEvent) => {
+    e.preventDefault();
   const chessboard = chessboardRef.current;
   if (activePiece && chessboard) {
       const x = Math.floor((e.clientX - chessboard.offsetLeft) / GRID_SIZE);
@@ -117,15 +188,36 @@ const dropPiece = (e: React.MouseEvent) => {
                   // Reset the piece position
                   activePiece.style.removeProperty("top");
                   activePiece.style.removeProperty("left");
-              }, 1000);
+              }, 100);
+          }else{
+            const move = `${currentPiece.type.charAt(0) === 'p' ? 
+            ''  : currentPiece.type.charAt(0).toLocaleUpperCase() }${HORIZONTAL_AXIS[grabPosition.x]}${VERTICAL_AXIS[grabPosition.y]}->${HORIZONTAL_AXIS[x]}${VERTICAL_AXIS[y]}`;
+
+        if (currentPiece.team === "l") {
+          setWhiteMoveLog((prevMoveLog) => [...prevMoveLog, move]);
+        } else {
+          setBlackMoveLog((prevMoveLog) => [...prevMoveLog, move]);
+        }
+
+        // Reproducir el sonido
+        console.log("Reproducir sonido");
+        soundRef.current?.play();
           }
       }
       setActivePiece(null);
       setIsDragging(false);
+      
+    if (isWhiteTurn) {
+      // Turno de las blancas, detener el temporizador de las negras
+      setBlackTime((prevTime) => prevTime);
+    } else {
+      // Turno de las negras, detener el temporizador de las blancas
+      setWhiteTime((prevTime) => prevTime);
+    }
+
+    setIsWhiteTurn((prevTurn) => !prevTurn); // Alternar el turno
   }
 };
-
-
 
 
     let board = [];
@@ -148,27 +240,68 @@ const dropPiece = (e: React.MouseEvent) => {
     }
     return ( 
         <>
-           <div>
-        <div className="labels-container">
-          <div className="row-labels">{rowLabels}</div>
-          <div 
-            id="chessboard"
-            onMouseDown={grabPiece}
-            onMouseMove={movePiece}
-            onMouseUp={dropPiece}
-            className={isInvalidMove ? "invalid-move" : ""}
+           
+           <div className="time-container" style={{background: boardColor.register}}>
+              <div className="player-time-white" style={{backgroundColor: boardColor.whiteTile}}>
+              <img src='assets/images/Chess_plt60.png' alt='' style={{width: '40px', height: '40px'}}/>
+                <span className="player-color">{whitePlayer || 'Player1'}:</span>{" "}
+                <span className="time">{formatTime(whiteTime)}</span>
+              </div>
+              <div className="player-time-black" style={{backgroundColor: boardColor.whiteTile}}>
+                <img src='assets/images/Chess_pdt60.png' alt='' style={{width: '40px', height: '40px'}}/>
+                <span className="player-color">{blackPlayer || 'Player2'}:</span>{" "}
+                <span className="time">{formatTime(blackTime)}</span>
+              </div>
+            </div>
+            
+           <div className='chessboard-container'>           
+            <div>           
+              <div className="labels-container">
+                <div className="row-labels">{rowLabels}</div>
+                <div 
+                    id="chessboard"
+                    onMouseDown={grabPiece}
+                    onMouseMove={movePiece}
+                    onMouseUp={dropPiece}
+                    className={isInvalidMove ? "invalid-move" : ""}
 
-            ref={chessboardRef}
-          >{board}
-          </div>
+                    ref={chessboardRef}
+                >{board}
+                </div>
+              </div>
+              <div className="column-labels">
+                <span className="empty-label" />
+                {HORIZONTAL_AXIS.map((letter, index) => (
+                    <span key={index} className="column-label">{letter.toUpperCase()}</span>
+                ))}
+              </div>
+            </div>
+            <div>
+            <div className='register' style={{background: boardColor.register}}>
+             <h2>Registro de jugadas</h2>
+            </div>
+            <div className="move-log-container" style={{background: boardColor.register}}>
+            
+              <div className="move-log">
+              <ul>
+                {whiteMoveLog.map((move, index) => (
+                  <li key={index}> {index+1}.   {move === 'Ke1->a1' ? '0-0-0' : move === 'Ke1->h1' ? '0-0' : move}</li>
+                ))}
+              </ul>
+              </div>
+              <div className="move-log">
+                <ul>
+                  {blackMoveLog.map((move, index) => (
+                    <li key={index}>{move === 'Ke8->a8' ? '0-0-0' : move === 'Ke8->h8' ? '0-0' : move }</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            </div>
         </div>
-        <div className="column-labels">
-          <span className="empty-label" />
-          {HORIZONTAL_AXIS.map((letter, index) => (
-            <span key={index} className="column-label">{letter.toUpperCase()}</span>
-          ))}
-        </div>
-      </div>
+        <audio ref={soundRef}>
+        <source src={'/toque.mp3'} type="audio/mpeg" />
+      </audio>
         </>
      );
 }

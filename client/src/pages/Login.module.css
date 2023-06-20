@@ -1,0 +1,68 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .formContainer {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 400px;
+  }
+  
+  .title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .inputGroup {
+    margin-bottom: 15px;
+   
+  }
+  
+  .inputField {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 95%;
+  }
+  
+  .loginButton {
+    background-color: #1877f2;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .loginButton:hover {
+    background-color: #166fe5;
+  }
+  
+  .forgotPasswordText
+  .signupText {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .forgotPasswordText
+  .signupText a {
+    color: #1877f2;
+    text-decoration: none;
+  }
+  
+  .forgotPasswordText
+  .signupText a:hover {
+    text-decoration: underline;
+  }
+  

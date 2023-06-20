@@ -1,0 +1,56 @@
+.navbar {
+    background-color: #333;
+    color: #fff;
+    width: 200px;
+    height: 100%;
+    padding: 20px;
+    position: fixed; /* Añadir posición fija */
+    left: 0; /* Añadir posición a la izquierda */
+    top: 0; /* Añadir posición en la parte superior */
+    margin: 0; /* Eliminar margen */
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar li {
+    margin-bottom: 10px;
+  }
+  
+  .navbar li:hover {
+    background-color: #555;
+    cursor: pointer;
+  }
+  
+  .content {
+    margin-left: 220px; /* Espacio adicional para el Navbar */
+    padding: 20px;
+  }
+  
+  /* Estilos adicionales para el resto del contenido de la aplicación */
+  
+  .color-options {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .color-option {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.color-board {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.color-preview {
+  display: flex;
+  margin-top: 10px;
+}
