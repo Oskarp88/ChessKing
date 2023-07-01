@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './NavBar.css';
 import { useChessboardContext } from '../../Context/boardContext';
+import { Link, useNavigate } from 'react-router-dom';
+import { AiFillDashboard, AiFillHome, AiOutlineClose, AiOutlineForm, AiOutlineLogin, AiOutlineLogout, AiOutlineMenu, AiOutlinePoweroff, AiOutlineUser} from 'react-icons/ai'
+import { useAuth } from '../../Context/authContext';
+import { toast } from 'react-toastify';
 
 
 interface Color {
@@ -32,6 +36,9 @@ function NavBar() {
   const [showColorOptions, setShowColorOptions] = useState(false);
   const [selectedColorId, setSelectedColorId] = useState(colorBoard[0].id);
   const [playTactoSound, setPlayTactoSound] = useState(false);
+  const [showNavBar, setShowNavBar] = useState(false);
+  const {auth, setAuth} = useAuth();
+  console.log(auth?.user?.photo)
 
   useEffect(() => {
     const audio = new Audio('sound/toque.mp3');
@@ -70,37 +77,111 @@ function NavBar() {
     setShowColorOptions(!showColorOptions);
   };
 
+  const toggleNavBar = () => {
+    setShowNavBar(!showNavBar);
+  };
+
+  const handleLogout = () => {
+    setAuth({
+     ...auth, 
+     user: null,
+     token:''
+    });
+    localStorage.removeItem('auth');
+    toast.success('Logout succefilly',{         
+      autoClose: 3000,
+      closeButton: (
+        <button className='closeButton'>X</button>
+      ),
+      });
+ }
+
+
   return (
-    <div className="navbar">
-      <ul>
-        <li>
-          <span onClick={toggleColorOptions}>
-            Colores Casillas
-          </span>
-          {
-            showColorOptions && <div className="color-options">
-            {colorBoard.map((c) => (
-              <label key={c.id} className="color-option">
-                <input
-                  type="radio"
-                  name="color"
-                  value={c.id}
-                  onChange={handleColorChange}
-                  checked={c.id === selectedColorId}
-                />
-                <div className="color-board" style={{ backgroundColor: c.blackTile }}></div>
-                <div className="color-board" style={{ backgroundColor: c.whiteTile }}></div>
-              </label>
-            ))}
+    <>
+    
+       <div className={`navbar-toggle ${showNavBar ? 'active' : ''}`} onClick={toggleNavBar}>
+         {showNavBar ? <AiOutlineClose className="AiOutlineClose"/> : 
+          <div className='hamburger-menu'>
+            <div className="line"></div>
+            <div className="line"></div>
+            <div className="line"></div>
           </div>
-          }
-        </li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-        <li>Item 4</li>
-      </ul>
-    </div>
+         }
+        </div>
+        {showNavBar && (
+           <div className={`navbar ${showNavBar ? 'active' : ''}`}>
+             {auth.user &&  
+                <div className='user-profile'>
+                  {auth.user.photo ? 
+                     <img className='profile'  src={`http://localhost:8080/api/user-photo/${auth.user._id}`} alt='hola'/>
+                     :<img className='profile'  src='assets/icon/user.png' alt='hola'/>}
+                     <span className='user-name'>{auth.user?.name}</span>
+                </div>}
+                <ul>
+                  <li className='li'>
+                    <AiFillHome/>
+                    <Link className='link-li' to="/">Inicio</Link>
+                  </li>
+                  {!auth.user && (
+                   <>
+                     <li className='li'>
+                       <AiOutlineLogin/>
+                       <Link className='link-li' to="/login">Iniciar Sesión</Link>
+                     </li>
+                     <li>
+                       <AiOutlineForm/>
+                       <Link className='link-li' to="/register">Register</Link>
+                     </li>
+                   </>
+                  )}
+                  {
+                    auth.user && (
+                      <>
+                        <li>
+                           <Link className='link-li' to={`dashboard/${auth.user.role === 'admin' ? 'admin' : 'user'}`}>
+                             <AiFillDashboard/>
+                             Dashboard 
+                           </Link>
+                        </li>
+                        <li>
+                        <span onClick={toggleColorOptions}>
+                           Colores Casillas
+                        </span>
+                        {
+                          showColorOptions && 
+                            <div className="color-options">
+                              {colorBoard.map((c) => (
+                              <label key={c.id} className="color-option">
+                              <input
+                                  type="radio"
+                                  name="color"
+                                  value={c.id}
+                                  onChange={handleColorChange}
+                                  checked={c.id === selectedColorId}
+                                />
+                                <div className="color-board" style={{ backgroundColor: c.blackTile }}></div>
+                                <div className="color-board" style={{ backgroundColor: c.whiteTile }}></div>
+                              </label>
+                              ))}
+                            </div>
+                        }
+                       </li>
+                      <li>
+                        <AiOutlineLogout/>
+                        <Link className='link-li' to='/login' onClick={handleLogout}>
+                          Cerrar Sesión
+                        </Link>
+                      </li>
+                        </>
+                      )
+                  }
+              </ul>
+           </div>
+        )}    
+    </>
   );
 }
 
 export default NavBar;
+

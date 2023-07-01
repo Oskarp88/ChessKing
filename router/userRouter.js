@@ -3,18 +3,46 @@ const userRouter = express.Router();
 const { verifyToken } = require('../config/jwt');
 const User = require('../model/User');
 const Game = require('../model/Game');
-const isAdmin = require('../middleware/isAdmin');
+const multer = require('multer');
+const {isAdmin, requireSignIn} = require('../middleware/isAdmin')
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const { hashPassword } = require('../helpers/authHelpers.js');
 const crypto = require('crypto');
+const fs = require('fs');
+const formidable = require('express-formidable');
+
 
 require('dotenv').config();
 
+// Configurar el almacenamiento de archivos con Multer
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/'); // Carpeta de destino para guardar los archivos
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname); // Usa el nombre original del archivo
+  }
+});
 
+const upload = multer({ storage: storage });
+userRouter.get('/user/:id', async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
 
 // Obtener todos los usuarios (solo para administradores)
-userRouter.get('/users', isAdmin, (req, res) => {
+userRouter.get('/users', isAdmin,(req, res) => {
 
   User.find({}, '-password') // Excluye el campo de contraseña en la respuesta
     .then(users => {
@@ -25,6 +53,12 @@ userRouter.get('/users', isAdmin, (req, res) => {
     });
 });
 
+//proteted user route auth
+userRouter.get('/user-auth', requireSignIn, (req, res) => {
+  console.log('estas autoriazdo')
+  res.status(200).send({ok: true});
+})
+
 userRouter.post('/user', async (req, res) => {
   const {
     name, 
@@ -33,7 +67,6 @@ userRouter.post('/user', async (req, res) => {
     email, 
     password,  
     country,
-    
 } = req.body;
 //validations
 
@@ -78,7 +111,8 @@ userRouter.post('/user', async (req, res) => {
       username,
       email,
       password:hashedPassword,
-      country
+      role: 'user',     
+      country,
     }).save();
 
     res.status(201).send({
@@ -186,47 +220,76 @@ userRouter.put('admin/dashboard/users/:id', isAdmin, (req, res) => {
     });
 });
 
-userRouter.put('/user/update/:id', async (req, res) => {
-  const token = req.headers.authorization;
-  const decoded = verifyToken(token);
-
-  if (!decoded) {
-    return res.status(401).json({ message: 'Acceso no autorizado' });
-  }
-
-  const { id: userId } = decoded;
-  const { id } = req.params;
-  const { username, email, password, country, profileImage } = req.body;
-
-  if (userId !== id) {
-    return res.status(403).json({ message: 'No tienes permiso para actualizar estos datos' });
-  }
-
+userRouter.get('/user-photo/:pid',async(req, res) => {
   try {
-    // Verificar si el nombre de usuario o el correo electrónico ya están en uso por otros usuarios
-    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
-
-    if (existingUser && existingUser._id != id) {
-      return res.status(409).json({ message: 'El nombre de usuario o correo electrónico ya está en uso' });
+    const user = await User.findById(req.params.pid).select('photo');
+    console.log(user.photo.data);
+    if(user.photo.data){
+        res.set('Content-type', user.photo.contentType)
+        return res.status(200).send(user.photo.data);
+    }else{
+      res.status(404).json({ error: 'Imagen no encontrada' });
     }
+} catch (error) {
+    console.log('error en la imagen');
+    res.status(500).send({
+        success:false,
+        message: 'Error while getting photo',
+        error
+    })
+}
 
-    // Actualizar los datos del usuario
-    const updates = { username, email, country, profileImage };
-    if (password) {
-      const salt = await bcrypt.genSalt(10)
-      const hashedPassword = await bcrypt.hash(password, salt);
-      updates.password = hashedPassword;
-    }
+});
 
-    const updatedUser = await User.findByIdAndUpdate(id, updates, { new: true });
+userRouter.put('/user/update/:userId', formidable(), async (req, res) => {
+  
+  const { userId } = req.params; // Obtén el ID del usuario desde los parámetros de la ruta
+  const { name, lastName, username, country } = req.fields;
+  // console.log(name, lastName, username, country);
+  const {photo} = req.files;
 
-    if (!updatedUser) {
-      return res.status(404).json({ message: 'Usuario no encontrado' });
-    }
+  console.log(photo);
+    try{
+      const user = await User.findById(userId); // Encuentra el usuario por su ID en la base de datos
 
-    res.json(updatedUser);
+      if (!user) {
+        return res.status(404).json({ error: 'Usuario no encontrado' });
+      }
+      // Actualiza los campos del usuario con los nuevos valores proporcionados
+     const userUpdate = await User.findByIdAndUpdate(userId,{
+        name: name || user.name,
+        lastName: lastName || user.lastName,
+        username: username || user.username,
+        country: country || user.country,
+     },{new: true});
+
+      // Verifica si se proporcionó una imagen
+      if(photo){
+        user.photo.data = fs.readFileSync(photo.path);
+        user.photo.contentType = photo.type;
+     }
+      
+      await user.save(); // Guarda los cambios en la base de datos
+    
+      res.send({
+      success: true,
+      message: 'Datos de usuario actualizados correctamente',
+      userUpdate
+    });
   } catch (error) {
-    console.error(error);
+    console.log(name, lastName, username, country);
+  console.log(req.file);
+  console.log('error', error);
+  if (error.response) {
+    // Error de respuesta desde el servidor (código de estado no 2xx)
+    console.log('Response error:', error.response.data);
+  } else if (error.request) {
+    // No se recibió ninguna respuesta del servidor
+    console.log('No response from server');
+  } else {
+    // Error en la configuración de la solicitud o en el proceso de envío
+    console.log('Request error:', error.message);
+  }
     res.status(500).json({ message: 'Error al actualizar el usuario' });
   }
 });
@@ -249,7 +312,7 @@ userRouter.delete('/users/:id', isAdmin, (req, res) => {
 
 
 // Obtener estadísticas de un jugador específico
-userRouter.get('/users/:id/stats', (req, res) => {
+userRouter.get('/users/:id/stats', requireSignIn, (req, res) => {
     const { id } = req.params;
   
     User.findById(id)
@@ -295,14 +358,8 @@ userRouter.get('/users/:id/games', (req, res) => {
   });
   
   // Ruta de administración accesible solo para administradores
-userRouter.get('/admin/dashboard', isAdmin, (req, res) => {
-    User.find({}, '-password')
-    .then(users => {
-      res.json(users);
-    })
-    .catch(error => {
-      res.status(500).json({ message: 'Error al obtener los usuarios' });
-    });
+userRouter.get('/admin/dashboard',requireSignIn, isAdmin, (req, res) => {
+  res.status(200).send({ok: true});   
   });
 
   // Actualizar el rol de un usuario a administrador (solo para administradores)

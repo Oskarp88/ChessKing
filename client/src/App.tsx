@@ -12,6 +12,12 @@ import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AdminRoute from './components/routes/RouteAdmin';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AllUsers from './pages/admin/Allusers';
+import PrivateRoute from './components/routes/PrivateRoute';
+import UserProfile from './pages/user/UserProfile';
+
 
 
 function App() {
@@ -26,13 +32,14 @@ function App() {
     // Por ejemplo, enviar los datos al servidor, realizar validaciones, etc.
     console.log(formData); // Ejemplo: mostrar los datos en la consola
   };
-
+ 
 
   return (
     <CheckMateProvider>
       <ChessboardProvider>
         <div id="app">
         <Router>
+            <NavBar /> 
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login onSubmit={handleLoginSubmit} />} />
@@ -40,10 +47,17 @@ function App() {
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/reset-password/:token" element={<ResetPassword/>} />
               <Route path="/chess" element={<div className="content"><Referee /></div>} />
+              <Route path='/dashboard' element={<AdminRoute/>}>
+                <Route path='admin' element={<AdminDashboard/>}/>
+                <Route path='admin/users' element={<AllUsers/>}/>
+              </Route>
+              <Route path='/dashboard' element={<PrivateRoute/>}>
+                <Route path='user' element={<UserProfile/>}/>
+              </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Router>
-          <NavBar /> 
+         
           <ToastContainer />        
         </div>
       </ChessboardProvider>

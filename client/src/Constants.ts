@@ -158,3 +158,11 @@ export const initialBoard: Board = new Board([
 ], 1);
 
 initialBoard.calculateAllMoves();
+
+export const countries = [
+    { name: 'Country 1', flag: 'url_bandera_1' },
+    { name: 'Country 2', flag: 'url_bandera_2' },
+    { name: 'Country 3', flag: 'url_bandera_3' },
+    // Agrega más países aquí
+  ];
+  

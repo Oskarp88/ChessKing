@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import style from './ResetPassword.module.css';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 interface ResetPasswordProps {
   // Propiedades del componente, si las necesitas
@@ -29,20 +30,63 @@ const ResetPassword: React.FC<ResetPasswordProps> = () => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      // Mostrar un mensaje de error indicando que las contraseñas no coinciden
+      toast.error('La Contraseña no coinciden',{
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
       return;
     }
 
     try {
       // Aquí deberías enviar la solicitud para restablecer la contraseña al servidor
-      await axios.post('http://localhost:8080/api/user/reset-password', {
+     const response = await axios.post('http://localhost:8080/api/user/reset-password', {
        token: token,
       newPassword: password,
       });
+
+      if(response.data){
+        toast.success(response.data.message,{
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+      }else{
+        toast.error(response.data.error,{
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+      }
       // Realiza cualquier otra acción necesaria después de restablecer la contraseña, como redirigir al usuario a una página de inicio de sesión
     } catch (error) {
       // Maneja el error de acuerdo a tus necesidades
       console.error(error);
+      toast.error(String(error),{
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     }
   };
 

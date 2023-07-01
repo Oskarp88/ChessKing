@@ -6,6 +6,10 @@ const userSchema = new mongoose.Schema({
   username: { type: String, unique: true },
   email: { type: String, unique: true },
   password: String,
+  photo:{
+    data:Buffer,
+    contentType:String
+},
   role: String,
   score: { type: Number, default: 0 },
   deleted: { type: Boolean, default: false },
@@ -13,9 +17,10 @@ const userSchema = new mongoose.Schema({
   gamesLost: { type: Number, default: 0 },
   gamesTied: { type: Number, default: 0 },
   country: String,
-  profileImage: String,
   resetToken: String,
   resetTokenExpiration: Date,
+  rango: String,
+  insignia: String
 });
 
 module.exports = mongoose.model('User', userSchema);

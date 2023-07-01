@@ -1,0 +1,36 @@
+.userlist {
+    margin-top: 20px;
+  }
+  
+.userlist table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+.userlist  th,
+  td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  
+.userlist  th {
+    background-color: #f2f2f2;
+  }
+  
+.userlist  select {
+    width: 100px;
+  }
+  
+.userlist button {
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+.userlist  button:hover {
+    background-color: #d32f2f;
+  }
+  
