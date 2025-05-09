@@ -1,163 +1,46 @@
+import { Piece } from "./components/games/pieces/Pieces";
 import { PieceType, TeamType } from "./Types";
-import { Piece} from "./models/Piece";
-import { Position } from "./models/Position";
-import { Board } from "./models/Board";
-import { Pawn } from "./models/Pawn";
 
 export const VERTICAL_AXIS = ["1","2","3","4","5","6","7","8"];
 export const HORIZONTAL_AXIS = ["a","b","c","d","e","f","g","h"];
 
 export const GRID_SIZE = 75;
 
-
-export const initialBoard: Board = new Board([
-    new Piece(
-        new Position(7, 0),       
-        PieceType.ROOK,
-        TeamType.OUR,
-        false),
-    new Piece(
-        new Position(0, 0),
-        PieceType.ROOK,
-        TeamType.OUR,  
-        false),
-    new Piece(
-        new Position(1, 0),
-        PieceType.KNIGTH,
-        TeamType.OUR, 
-        false),
-    new Piece(
-        new Position(6, 0),
-        PieceType.KNIGTH,
-        TeamType.OUR, 
-        false),
-    new Piece(
-        new Position(2, 0),
-        PieceType.BISHOP,
-        TeamType.OUR, 
-        false ),
-    new Piece(
-        new Position(5, 0),
-        PieceType.BISHOP,
-        TeamType.OUR, 
-        false),
-    new Piece(
-        new Position(3,0),
-        PieceType.QUEEN,
-        TeamType.OUR,  
-        false),
-    new Piece(
-        new Position(4, 0),
-        PieceType.KING,
-        TeamType.OUR, 
-        false),
-    new Piece(
-        new Position(7, 7),
-        PieceType.ROOK,
-        TeamType.OPPONENT,
-        false),
-    new Piece(
-        new Position(0, 7),
-        PieceType.ROOK,
-        TeamType.OPPONENT,
-        false),
-    new Piece(
-        new Position(1, 7),
-        PieceType.KNIGTH,
-        TeamType.OPPONENT,
-        false),
-    new Piece(
-        new Position(6, 7),
-        PieceType.KNIGTH,
-        TeamType.OPPONENT,
-        false),
-    new Piece(
-        new Position(2, 7),
-        PieceType.BISHOP,
-        TeamType.OPPONENT,
-        false),
-    new Piece(
-        new Position(5, 7),
-        PieceType.BISHOP,
-        TeamType.OPPONENT,
-        false),
-    new Piece(
-        new Position(3, 7),
-        PieceType.QUEEN,
-        TeamType.OPPONENT,
-        false),
-    new Piece(
-        new Position(4, 7),
-        PieceType.KING,
-        TeamType.OPPONENT,
-        false),
-    new Pawn(
-        new Position(0, 1),
-        TeamType.OUR,
-        false),
-    new Pawn(
-        new Position(1, 1),
-        TeamType.OUR,
-        false),
-    new Pawn(
-        new Position(2, 1),
-        TeamType.OUR,
-        false),
-    new Pawn(
-        new Position(3, 1),
-        TeamType.OUR,
-        false),
-    new Pawn(
-        new Position(4, 1),
-        TeamType.OUR,
-        false),
-    new Pawn(
-        new Position(5, 1),
-        TeamType.OUR,
-        false),
-    new Pawn(
-        new Position(6, 1),
-        TeamType.OUR,
-        false),
-    new Pawn(
-        new Position(7, 1),
-        TeamType.OUR,
-        false),
-    new Pawn(
-        new Position(0, 6),
-        TeamType.OPPONENT,
-        false),
-    new Pawn(
-        new Position(1, 6),
-        TeamType.OPPONENT,
-        false),
-    new Pawn(
-        new Position(2, 6),
-        TeamType.OPPONENT,
-        false),
-    new Pawn(
-        new Position(3, 6),
-        TeamType.OPPONENT,
-        false),
-    new Pawn(
-        new Position(4, 6),
-        TeamType.OPPONENT,
-        false),
-    new Pawn(
-        new Position(5, 6),
-        TeamType.OPPONENT,
-        false),
-    new Pawn(
-        new Position(6, 6),
-        TeamType.OPPONENT,
-        false),
-    new Pawn(
-        new Position(7, 6),
-        TeamType.OPPONENT,
-        false),
-], 1);
-
-initialBoard.calculateAllMoves();
+export const initPieces: Piece[] = [
+    { image: 'assets/images/wp.png', x: 0, y: 1, color: 'white', hasMoved: false, type: PieceType.PAWN },
+    { image: 'assets/images/wp.png', x: 1, y: 1, color: 'white', hasMoved: false, type: PieceType.PAWN },
+    { image: 'assets/images/wp.png', x: 2, y: 1, color: 'white', hasMoved: false, type: PieceType.PAWN },
+    { image: 'assets/images/wp.png', x: 3, y: 1, color: 'white', hasMoved: false, type: PieceType.PAWN },
+    { image: 'assets/images/wp.png', x: 4, y: 1, color: 'white', hasMoved: false, type: PieceType.PAWN },
+    { image: 'assets/images/wp.png', x: 5, y: 1, color: 'white', hasMoved: false, type: PieceType.PAWN },
+    { image: 'assets/images/wp.png', x: 6, y: 1, color: 'white', hasMoved: false, type: PieceType.PAWN },
+    { image: 'assets/images/wp.png', x: 7, y: 1, color: 'white', hasMoved: false, type: PieceType.PAWN },
+    { image: 'assets/images/wk.png', x: 4, y: 0, color: 'white', hasMoved: false, type: PieceType.KING },
+    { image: 'assets/images/bb.png', x: 2, y: 7, color: 'black', hasMoved: false, type: PieceType.BISHOP },
+    { image: 'assets/images/bb.png', x: 5, y: 7, color: 'black', hasMoved: false, type: PieceType.BISHOP },
+    { image: 'assets/images/wr.png', x: 0, y: 0, color: 'white', hasMoved: false, type: PieceType.ROOK },
+    { image: 'assets/images/wr.png', x: 7, y: 0, color: 'white', hasMoved: false, type: PieceType.ROOK },
+    { image: 'assets/images/wq.png', x: 3, y: 0, color: 'white', hasMoved: false, type: PieceType.QUEEN },
+    { image: 'assets/images/wb.png', x: 2, y: 0, color: 'white', hasMoved: false, type: PieceType.BISHOP },
+    { image: 'assets/images/wb.png', x: 5, y: 0, color: 'white', hasMoved: false, type: PieceType.BISHOP },
+    { image: 'assets/images/wn.png', x: 1, y: 0, color: 'white', hasMoved: false, type: PieceType.KNIGHT },
+    { image: 'assets/images/wn.png', x: 6, y: 0, color: 'white', hasMoved: false, type: PieceType.KNIGHT },
+    { image: 'assets/images/br.png', x: 0, y: 7, color: 'black', hasMoved: false, type: PieceType.ROOK },
+    { image: 'assets/images/br.png', x: 7, y: 7, color: 'black', hasMoved: false, type: PieceType.ROOK },
+    { image: 'assets/images/bn.png', x: 1, y: 7, color: 'black', hasMoved: false, type: PieceType.KNIGHT },
+    { image: 'assets/images/bn.png', x: 6, y: 7, color: 'black', hasMoved: false, type: PieceType.KNIGHT },
+    { image: 'assets/images/bk.png', x: 4, y: 7, color: 'black', hasMoved: false, type: PieceType.KING },
+    { image: 'assets/images/bq.png', x: 3, y: 7, color: 'black', hasMoved: false, type: PieceType.QUEEN },
+    { image: 'assets/images/bp.png', x: 0, y: 6, color: 'black', hasMoved: false, type: PieceType.PAWN },
+    { image: 'assets/images/bp.png', x: 1, y: 6, color: 'black', hasMoved: false, type: PieceType.PAWN },
+    { image: 'assets/images/bp.png', x: 2, y: 6, color: 'black', hasMoved: false, type: PieceType.PAWN },
+    { image: 'assets/images/bp.png', x: 3, y: 6, color: 'black', hasMoved: false, type: PieceType.PAWN },
+    { image: 'assets/images/bp.png', x: 4, y: 6, color: 'black', hasMoved: false, type: PieceType.PAWN },
+    { image: 'assets/images/bp.png', x: 5, y: 6, color: 'black', hasMoved: false, type: PieceType.PAWN },
+    { image: 'assets/images/bp.png', x: 6, y: 6, color: 'black', hasMoved: false, type: PieceType.PAWN },
+    { image: 'assets/images/bp.png', x: 7, y: 6, color: 'black', hasMoved: false, type: PieceType.PAWN }
+  ];
+  
 
 export const countries = [
     { name: 'Country 1', flag: 'url_bandera_1' },

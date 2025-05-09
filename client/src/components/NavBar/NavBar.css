@@ -92,21 +92,39 @@
   
   
   .color-options {
+    margin: 3%;
     display: flex;
     flex-wrap: wrap;
   }
   
   .color-option {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-right: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
+.color-row {
+  display: flex;
+  align-items: center;
+}
 .color-board {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  margin-right: 5px;
+  width: 25px; /* Ajusta el tamaño según tus preferencias */
+  height: 25px; /* Ajusta el tamaño según tus preferencias */
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.even {
+  margin-right: 0; /* Elimina el margen derecho en los índices pares (0, 2, 4, etc.) */
+}
+
+.odd {
+  margin-right: 20px; /* Restablece el margen derecho en los índices impares (1, 3, 5, etc.) */
+}
+.color-option.selected .color-board {
+  border: 2px solid #FF0000;
 }
 
 .color-preview {

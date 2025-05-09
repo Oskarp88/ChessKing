@@ -6,6 +6,8 @@ interface BoardColor {
   blackTile: string;
   whiteTile: string;
   register?: string;
+  whiteRow: string;
+  blackRow: string;
 }
 
 interface ChessboardContextProps {
@@ -27,7 +29,9 @@ export const ChessboardProvider: React.FC<{ children: React.ReactNode}> = ({ chi
   const [boardColor, setBoardColor] = useState<BoardColor>({
     blackTile: '',
     whiteTile: '',
-    register: ''
+    register: '',
+    whiteRow: '',
+    blackRow: ''
   });
   
   return (

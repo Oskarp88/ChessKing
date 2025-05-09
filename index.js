@@ -23,17 +23,28 @@ app.use(morgan('dev'));
 
 app.use('/api', router);
 
-io.on('connection', socket => {
-    console.log('Un usuario se ha conectado');
+io.on("connection", (socket) => {
+  console.log("User Connected: ",socket.id);
+
+  socket.on("join-room", (data) => {
+  socket.join(data);
+
+   console.log(`User with ID: ${socket.id} joined room: ${data}`);
+ });
+
+
+  socket.on("send_message", (data) => {
+   socket.to(data.room).emit("receive_message", data);
+  })
+
+  socket.on("send_move", (data) => {
+   socket.to(data.room).emit("opponentMove", data);
+  })
   
-    socket.on('chatMessage', message => {
-      io.emit('chatMessage', message); // Envía el mensaje a todos los clientes conectados
-    });
-  
-    socket.on('disconnect', () => {
-      console.log('Un usuario se ha desconectado');
-    });
-  });
+  socket.on("disconnect", () => {
+    console.log("User Disconnected", socket.id);
+  })
+})
 
 // Configurar rutas y controladores aquí
 

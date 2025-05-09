@@ -3,7 +3,7 @@ import { AnyAction } from "redux";
 export enum PieceType {
     PAWN = 'pawn',
     BISHOP = 'bishop',
-    KNIGTH = 'nigth',
+    KNIGHT = 'nigth',
     ROOK = 'rook',
     QUEEN = 'queen',
     KING = 'king'
@@ -12,6 +12,16 @@ export enum PieceType {
 export enum TeamType{
     OPPONENT = 'd',
     OUR = 'l',
+}
+
+export interface Move {
+  x: number;
+  y: number;
+}
+
+export interface EnPassantTarget {
+  x: number;
+  y: number;
 }
 
 export interface FormData {

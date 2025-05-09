@@ -14,16 +14,17 @@ interface Color {
   register: string;
 }
 
-const colorBoard: Color[] = [
-  { id: 1, blackTile: '#2E86C1', whiteTile: '#D6EAF8', register: 'linear-gradient(89deg, rgb(21, 74, 189) 0.1%, rgb(26, 138, 211) 51.5%, rgb(72, 177, 234) 100.2%)' },
-  { id: 2, blackTile: '#779556', whiteTile: '#ebecd0', register: 'radial-gradient(circle at -1% 57.5%, rgb(19, 170, 82) 0%, rgb(0, 102, 43) 90%)' },
-  { id: 3, blackTile: '#276d78', whiteTile: '#bbe4e9', register: 'radial-gradient(circle at 5.6% 54.5%, rgb(47, 71, 79) 0%, rgb(159, 188, 198) 83.6%)' },
-  { id: 4, blackTile: '#f76b8a', whiteTile: '#ffcbcb', register: 'linear-gradient(to right, #ff758c 0%, #ff7eb3 100%)' },
-  { id: 5, blackTile: '#f96d00', whiteTile: '#ffebbb', register: 'linear-gradient(105.6deg, rgb(246, 220, 111) 12.4%, rgb(222, 104, 104) 78.7%)' },
-  { id: 6, blackTile: '#8a1253', whiteTile: '#cca8e9', register: 'linear-gradient(98.3deg, rgb(0, 0, 0) 10.6%, rgb(135, 16, 16) 97.7%)' },
-  { id: 7, blackTile: '#004445', whiteTile: '#b4e3dd', register: 'radial-gradient(759px at 14% 22.3%, rgb(10, 64, 88) 0%, rgb(15, 164, 102) 90%)' },
-  { id: 8, blackTile: '#263849', whiteTile: '#aeccc6', register: 'linear-gradient(177.9deg, rgb(58, 62, 88) 3.6%, rgb(119, 127, 148) 105.8%)' },
+const colorBoard = [
+  { id: 1, blackRow: '#2E86C1', whiteRow: '#ebecd0', blackTile: 'black-tile-azul', whiteTile: 'white-tile-azul', register: 'linear-gradient(89deg, rgb(21, 74, 189) 0.1%, rgb(26, 138, 211) 51.5%, rgb(72, 177, 234) 100.2%)' },
+  { id: 2, blackRow: '#779556', whiteRow: '#ebecd0', blackTile: 'black-tile-verde', whiteTile: 'white-tile-verde', register: 'radial-gradient(circle at -1% 57.5%, rgb(19, 170, 82) 0%, rgb(0, 102, 43) 90%)' },
+  { id: 3, blackRow: '#276d78', whiteRow: '#bbe4e9', blackTile: 'black-tile-verdeGris', whiteTile: 'white-tile-verdeGris', register: 'radial-gradient(circle at 5.6% 54.5%, rgb(47, 71, 79) 0%, rgb(159, 188, 198) 83.6%)' },
+  { id: 4, blackRow: '#e7617e', whiteRow: '#ffcbcb', blackTile: 'black-tile-rosa', whiteTile: 'white-tile-rosa', register: 'linear-gradient(to right, #ff758c 0%, #ff7eb3 100%)' },
+  { id: 5, blackRow: '#f96d00', whiteRow: '#ffebbb', blackTile: 'black-tile-naranja', whiteTile: 'white-tile-naranja', register: 'linear-gradient(105.6deg, rgb(246, 220, 111) 12.4%, rgb(222, 104, 104) 78.7%)' },
+  { id: 6, blackRow: '#810404', whiteRow: '#f0bdbd', blackTile: 'black-tile-rojo', whiteTile: 'white-tile-rojo', register: 'linear-gradient(98.3deg, rgb(0, 0, 0) 10.6%, rgb(135, 16, 16) 97.7%)' },
+  { id: 7, blackRow: '#004445', whiteRow: '#d1ebe7', blackTile: 'black-tile-verdeOscuro', whiteTile: 'white-tile-verdeOscuro', register: 'radial-gradient(759px at 14% 22.3%, rgb(10, 64, 88) 0%, rgb(15, 164, 102) 90%)' },
+  { id: 8, blackRow: '#263849', whiteRow: '#c8dad7', blackTile: 'black-tile-azulOscuro', whiteTile: 'white-tile-azulOscuro', register: 'linear-gradient(177.9deg, rgb(58, 62, 88) 3.6%, rgb(119, 127, 148) 105.8%)' },
 ];
+
 
 interface BoardColor {
   blackTile: string;
@@ -56,7 +57,9 @@ function NavBar() {
       setBoardColor({
         blackTile: selectedColor.blackTile,
         whiteTile: selectedColor.whiteTile,
-        register: selectedColor.register
+        register: selectedColor.register,
+        whiteRow: selectedColor.whiteRow,
+        blackRow: selectedColor.blackRow
       });
 
        // Reproducir el sonido cuando se suelta una pieza en una posición válida
@@ -67,8 +70,8 @@ function NavBar() {
     }
   }, [selectedColorId, setBoardColor]);
 
-  const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedColorId(Number(event.target.value));
+  const handleColorChange = (event: React.MouseEvent, colorId: number) => {
+    setSelectedColorId(Number(colorId));
     // Reproducir el sonido
   setPlayTactoSound(true);
   };
@@ -149,22 +152,24 @@ function NavBar() {
                            Colores Casillas
                         </span>
                         {
-                          showColorOptions && 
-                            <div className="color-options">
-                              {colorBoard.map((c) => (
-                              <label key={c.id} className="color-option">
-                              <input
-                                  type="radio"
-                                  name="color"
-                                  value={c.id}
-                                  onChange={handleColorChange}
-                                  checked={c.id === selectedColorId}
-                                />
-                                <div className="color-board" style={{ backgroundColor: c.blackTile }}></div>
-                                <div className="color-board" style={{ backgroundColor: c.whiteTile }}></div>
-                              </label>
-                              ))}
-                            </div>
+                          showColorOptions &&
+                          <div className="color-options">
+                              {colorBoard.map((c, index) => {
+                              const isEvenIndex = (index + 1) % 2 === 0;
+    
+                              return (<div key={c.id} className={`color-option ${isEvenIndex ? 'even' : 'odd'}`} onClick={(event) => handleColorChange(event, c.id)}>
+                              
+                              <div className="color-row">
+                                <div className="color-board" style={{ backgroundColor: c.blackRow }}></div>
+                                <div className="color-board" style={{ backgroundColor: c.whiteRow }}></div>
+                              </div>
+                              <div className="color-row">
+                                <div className="color-board" style={{ backgroundColor: c.whiteRow }}></div>
+                                <div className="color-board" style={{ backgroundColor: c.blackRow }}></div>
+                              </div>
+                            </div>)}
+                            )}
+                          </div>
                         }
                        </li>
                       <li>

@@ -3,7 +3,6 @@ import { ChessboardProvider } from './Context/boardContext';
 import { CheckMateProvider } from './Context/checkMateContex';
 import NavBar from './components/NavBar/NavBar';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Referee from './components/referee/Referee';
 import Registro, { RegisterFormData } from './pages/Registro';
 import { NotFound } from './pages/pageNotFound';
 import { Home } from './pages/Home';
@@ -46,7 +45,7 @@ function App() {
               <Route path="/register" element={<Registro onSubmit={handleRegistroSubmit} />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/reset-password/:token" element={<ResetPassword/>} />
-              <Route path="/chess" element={<div className="content"><Referee /></div>} />
+              {/* <Route path="/chess" element={<div className="content"><Referee /></div>} /> */}
               <Route path='/dashboard' element={<AdminRoute/>}>
                 <Route path='admin' element={<AdminDashboard/>}/>
                 <Route path='admin/users' element={<AllUsers/>}/>
