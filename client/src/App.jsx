@@ -36,6 +36,10 @@ import { ChessboardProvider } from "./context/boardContext/ChessboardProvider";
 import { GameContextProvider } from "./context/gameContext/GameContextProvider";
 import { useAuth } from "./context/authContext/authContext";
 import Registro from "./pages/Registro";
+import { SocketProvider } from "./context/socketContext/SocketProvider";
+import { ChatContextProvider } from "./context/chatContext/ChatContextProvider";
+import { PieceProvider } from "./context/pieceContext/PieceProvider";
+import GameTimes from "./components/chessBoard/page/gameTimes";
 // import Registro from "./pages/Registro";
 // import UserProfile from "./pages/user/UserProfile";
 
@@ -44,14 +48,14 @@ function App() {
  
   return (
     
-  // <SocketProvider user={auth.user}>
-  //  <ChatContextProvider user={auth.user}>
-  //    <PieceProvider>
+  <SocketProvider user={auth.user}>
+    <ChatContextProvider user={auth.user}>
+     <PieceProvider> 
        <LanguagesProvider>
-       {/* <CheckMateProvider> */}
+        <CheckMateProvider> 
          <ChessboardProvider user={auth.user}>  
-            {/* <GameContextProvider user={auth.user}>       */}
-                <Router>
+          <GameContextProvider user={auth.user}>       
+              <Router>
                 <ModalProvider>
                   <div id="app">
                     <NavBar />
@@ -59,6 +63,7 @@ function App() {
                       <Route path="/" element={<Home />} />
                       <Route path="/login" element={<Login />} />
                       <Route path="/register" element={<Registro />} />
+                      <Route path="/game-times" element={<GameTimes />} />
                       <Route path="*" element={<NotFound />} />
                       {/* otras rutas */}
                     </Routes>
@@ -67,13 +72,13 @@ function App() {
                 </ModalProvider>
                 </Router>
 
-            {/* </GameContextProvider> */}
+           </GameContextProvider> 
          </ChessboardProvider>
-        {/* </CheckMateProvider> */}
+         </CheckMateProvider> 
         </LanguagesProvider>
-  //   </PieceProvider>
-  //  </ChatContextProvider>
-  //  </SocketProvider>
+      </PieceProvider>
+    </ChatContextProvider> 
+    </SocketProvider>
    
   );
 }

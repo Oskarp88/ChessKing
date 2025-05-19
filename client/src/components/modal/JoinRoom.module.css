@@ -1,0 +1,84 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
+    z-index: 1000; /* Asegura que la superposición esté sobre el contenido */
+  }
+
+  .gameOverModal {
+    border-radius: 1rem;
+    background-color: #CFD8DC;;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 0px 1px #4e6383 inset, 0px 0px 0px 2px #7495b6 inset, 0px 4px 0px 0px #4a677c, 0px 5px 0px 0px #354156, 0px 8px 0px 0px rgba(0,0,0,.15);
+    -moz-box-shadow: 0px 0px 0px 1px #4e6383 inset, 0px 0px 0px 2px #7495b6 inset, 0px 4px 0px 0px #4a677c, 0px 5px 0px 0px #354156, 0px 8px 0px 0px rgba(0,0,0,.15);
+    -ie-box-shadow: 0px 0px 0px 1px #4e6383 inset, 0px 0px 0px 2px #7495b6 inset, 0px 4px 0px 0px #4a677c, 0px 5px 0px 0px #354156, 0px 8px 0px 0px rgba(0,0,0,.15);
+    box-shadow: 0px 0px 0px 1px #4e6383 inset, 0px 0px 0px 2px #7495b6 inset, 0px 4px 0px 0px #4a677c, 0px 5px 0px 0px #354156, 0px 8px 0px 0px rgba(0,0,0,.15);
+  }
+
+  .header{
+    border-radius: 1rem 1rem 0 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    height: 5.5rem;
+    color: #fff;
+    background: radial-gradient(circle at 1.8% 4.8%, rgb(17, 23, 58) 0%, rgb(58, 85, 148) 90%);
+  }
+
+  .header svg{
+    margin-top: 10px;
+  }
+  .header h2{
+    text-shadow: rgb(57, 46, 4) 0px -1px 0px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .close{
+    cursor: pointer;
+    margin-left: 90%;
+    color: white;
+  }
+  
+  .close:hover{
+    opacity: 90%;
+  }
+
+  .body{
+    padding: .5rem 1rem 3rem 1rem;
+  }
+
+  .section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .buttons{
+    display: flex;
+  }
+
+  
+  .buttons button {
+    font-weight: bold;
+    width: 8rem;
+    background: radial-gradient(circle at 1.8% 4.8%, rgb(17, 23, 58) 0%, rgb(58, 85, 148) 90%);   
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    margin: 5px;
+    color: #fff;
+  }

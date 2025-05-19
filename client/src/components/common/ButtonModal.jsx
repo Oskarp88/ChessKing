@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
 import { useAuth } from '../../context/authContext/authContext'
-import style from '../../pages/home/Home.module.css'
+import style from './ButtonModal.module.css'
 import { useSocketContext } from '../../context/socketContext/socketContext';
-import { GameContext } from '../../context/gameContext/gameContext';
 import { useNavigate } from 'react-router-dom';
 import { useCheckMateContext } from '../../context/checkMateContext/checkMateContext';
 import { useModalContext } from '../../context/modalContext/modalContext';
+import { GameContext } from '@/context/gameContext/gameContext';
+
 
 function ButtonModal({time, onSocket, emitSocket, text, elo}) {
     const {setShowModalMin} = useModalContext();    

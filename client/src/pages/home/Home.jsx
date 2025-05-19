@@ -43,7 +43,7 @@ function Home() {
             </Button>
 
             <Button 
-              href="/play-vs-ai" 
+              href="/game-times" 
               style={{ backgroundColor: '#FFCC00', borderColor: '#FFCC00', color: '#001F3F', fontWeight: '500' }}
             >
               Jugar contra la máquina
