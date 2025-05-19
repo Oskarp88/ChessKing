@@ -1,0 +1,123 @@
+.frienditem {
+    display: flex;
+    width: 95%;
+    height: 4rem;
+    align-items: center; /* Alinea los elementos verticalmente */
+    justify-content: space-between;
+    margin: 4px 10px 4px 10px;
+    padding: 5px;
+    border-radius: .1rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    -webkit-border-radius: .4rem;
+    -moz-border-radius: .4rem;
+    -ie-border-radius: .4rem;
+    border-radius: .4rem;
+    background:  linear-gradient(to top, #1b4f72  0%, #5dade2 100%);
+    float: right;
+    -webkit-box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 3px rgba(255,255,255,.2);
+    -moz-box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 3px rgba(255,255,255,.2);
+    -ie-box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 3px rgba(255,255,255,.2);
+    box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 3px rgba(255,255,255,.2);
+  }
+  
+  .frienditem:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+
+  .frienditemHovered {
+    background-color: #3498db; /* Cambia el color de fondo al pasar el ratón */
+    color: #fff; /* Cambia el color del texto al pasar el ratón */
+  }
+   
+ .containerProfile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  .imageContainer {
+    position: relative;
+    width: 50px; /* Asegúrate de que ambos elementos ocupen todo el contenedor */
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+   
+  .photoImage {
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    width: 96%;
+    height: 96%;
+    object-fit: cover; /* Ajusta la imagen para que se vea bien en el contenedor */
+    z-index: 1; /* Foto en la capa inferior */
+  }
+  
+  .marco {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta el marco para que coincida con la foto */
+    z-index: 2; /* Marco en la capa superior */
+  }
+  
+  .friendName {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .bandera{
+    width: 2rem;  
+  }
+
+  .containerFlex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+   
+   .imageInsignia{
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+   }
+
+   
+  .containerRanking {
+    display: flex;
+    justify-content: space-between;
+    height: 2.2rem;
+    align-items: center;
+    width: 5rem;
+    padding-left: 5px;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    -ie-border-radius: 13px;
+    border-radius: 13px;
+    background: rgba(0,0,0,.3);
+    float: right;
+    -webkit-box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+    -moz-box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+    -ie-box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+    box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+  }
+
+  
+  .friendRank{
+    display: flex;
+     justify-content: flex-end;
+     width: 80%;
+     padding-right: 5px;
+  }

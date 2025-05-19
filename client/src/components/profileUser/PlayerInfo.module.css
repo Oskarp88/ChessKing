@@ -1,0 +1,265 @@
+.playerInfoContainer {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 0px 0px;
+    padding: 10px;
+    width: 100%;
+    height: 5rem;
+    box-shadow: 0px 4px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+  }
+  .playerInfoContainer2 {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px;
+    width: 100%;
+    height: 5rem;
+    box-shadow: 0px -4px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+  }
+
+  .playerDetails2 {
+    display: flex;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: .5rem 0 0 0;
+    height: 100%;
+  }
+  .playerDetails {
+    display: flex;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 0 .5rem;
+    height: 100%;
+  }
+  .userprofile2 {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+  .userprofile {
+    position: relative;
+    width: 60px;
+    height: 60px;  
+    margin-left: 5px;
+    margin-bottom: 5px;
+  }
+  .imageContainer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  .marco{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: 2;
+  }
+  .playerIcon {
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    border-radius: 50%;
+    margin: auto;
+    z-index: 1;
+  } 
+  .playerName {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alinea los elementos verticalmente */
+    align-items: flex-start;
+    margin: auto;
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    color: #f8f8f8;
+  }
+  .status{
+    font-weight: 600;
+  }
+  .playerRating {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: .2rem;
+  }
+
+  .fast{
+    width: 20px;
+    height: 20px;
+    margin-top: -7px;
+    margin-right: 5px;
+  }
+
+  .timerDesconnect{
+     font-weight: 100;
+     font-size: 8px !important;
+  }
+
+  .timerContainer{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 22%;
+    height: 3.5rem;
+    margin-left: 5px;
+  }
+  .timerContainer1{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: 22%;
+    height: 3.5rem;
+    margin-left: 5px;
+  }
+  .playerTimer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: aliceblue;
+    border-radius: 5px;
+    width: 100%;
+    height: 2rem;
+    background-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0px -3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+    
+  }
+
+  .turnWhite{
+    background-color: #fdfefe;
+    color: black;
+  }
+
+  
+  .turnBlack{
+    background-color: #17202a ;
+    color: #f8f8f8;
+    box-shadow: 0px -3px 0px 0px rgba(251, 252, 252 ,.15) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+  }
+  .turnRed{
+    background-color: #f44336;
+    color: #f8f8f8;
+  }
+
+  .clock{
+    margin-top: -1.5px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  
+
+  .bandera{
+    width: 25px;
+    height: 18px;
+    margin-left: 5px;
+  }
+  
+  .playerName span {
+    flex: 1;
+  }
+  
+  .playerStatusIcon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 8px;
+    margin-top: -7.5px; 
+  }
+  
+  
+  .playerNameContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; /* Puedes ajustar esto según sea necesario */
+  }
+
+  @media (max-width: 850px){
+    
+    .playerName {     
+      width: 50%;
+    }
+    .playerTimer {      
+      font-size: 16px;
+    }
+  }
+ 
+  @media (max-width: 724px){
+    .userprofile2 {
+      width: 55px;
+      height: 55px;
+    }
+    .userprofile {
+      width: 55px;
+      height: 55px;  
+    }
+    
+    .playerName{
+      width: 60%;
+    }
+    .playerName span {
+      font-size: 12px;
+    }
+    .bandera{
+      width: 20px;
+      height: 15px;
+      margin-left: 5px;
+    }
+    .playerStatusIcon {
+      width: 15px;
+      height: 15px;
+      margin-right: 4px;
+      margin-left: -5px;
+      margin-top: -3.5px; 
+    }
+  }
+  @media (max-width: 450px){
+    .playerInfoContainer{
+      height: 4rem;
+      padding: 5px;
+    }
+    .playerInfoContainer2{
+      height: 4rem;
+      padding: 5px;
+    }   
+    .userprofile{
+      width: 45px;
+      height: 45px;
+    }
+    .userprofile2{
+      width: 45px;
+      height: 45px;
+    }
+  }
+  
+  @media (max-width: 380px){
+    .playerTimer{
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 320px) {
+     .playerTimer{
+      font-size: 12px;
+    }
+   
+  }

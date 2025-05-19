@@ -1,0 +1,131 @@
+.profileChekMate{
+    margin-top: 15px;
+    width: 100px;
+    height: 100px;
+    border-radius: 1rem 1rem 1rem 1rem;
+    background-color: grey;
+    border: solid 7px #81D4FA;
+  }
+  .gameOverModal {
+    background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);   
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 1rem 1rem 1rem 1rem;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 17rem;
+  }
+
+  .container{
+    font-family: "ADLaM Display", serif;
+    border-radius: 1rem 1rem 0 0;
+    padding-top: 1rem;
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background: radial-gradient(circle at 1.8% 4.8%, rgb(17, 23, 58) 0%, rgb(58, 85, 148) 90%);
+    clip-path: ellipse(100% 100% at 50% 0%);
+  }
+
+  .body {
+    padding: 2rem 1rem 3rem 1rem;
+   
+  }
+
+  .frase{
+    font-family: "ADLaM Display", serif;
+    color: rgb(58, 85, 148);
+  }
+  
+  .image{
+    display: flex;
+    justify-content: center;
+  }
+
+  .time{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5px;
+  }
+
+  .tittle{
+    font-weight: bold;
+    border-radius: 7px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    padding-bottom: 1px;
+    color: #030303;
+  }
+  
+  .gameOverModal h2 {
+    color: #90CAF9; /* Red color for emphasis */
+  }
+  
+  .gameOverModal p {
+    margin-top: 10px;
+  }
+  
+  .button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .gameOverModal button {
+    width: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 1.8% 4.8%, rgb(17, 23, 58) 0%, rgb(58, 85, 148) 90%);
+    box-shadow: 0px -4px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+    padding: 0 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px; 
+    color: #fff;
+    font-weight: bold;
+  }
+
+  .gameOverModal button:hover{
+    transition: 0.2s;
+    transform: scale(1.05);
+    background: linear-gradient(to top, #3184d1 0%, #330867 100%);
+  }
+  
+  /* Agrega esta clase para la superposición de fondo detrás del modal */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000; /* Asegura que la superposición esté sobre el contenido */
+  }
+
+  /* CSS para el spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinner {
+  color: #330867;
+  border: 4px solid rgba(23, 21, 21, 0.5);
+  border-left-color: #1690b9;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+.dirigiendo{
+  font-weight: bold;
+  color: #1976d2;
+}
+

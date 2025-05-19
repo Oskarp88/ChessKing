@@ -1,0 +1,34 @@
+.forgotPasswordContainer {
+    display: flex;
+    color: aliceblue;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    background-image: url('../../public/fondos/forgot.jpg');
+    background-size: cover; 
+    }
+  
+    .container{
+      margin-top: 10rem;
+      width: 50%;
+    }
+
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+    
+
+    @media (max-width: 725px){
+      .forgotPasswordContainer {     
+        background-image: url('../../public/fondos/registro.jpg'); 
+        height: 100vh;       
+    }
+    .container{
+      margin-top: 10rem;
+      width: 90%;
+    }
+  }

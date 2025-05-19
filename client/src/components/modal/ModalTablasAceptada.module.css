@@ -1,0 +1,95 @@
+.profileChekMate{
+    margin-top: 15px;
+    width: 100px;
+    height: 100px;
+    border-radius: 1rem;
+    background-color: grey;
+    border: solid 7px #546E7A ;
+    margin: 5px;
+  }
+  .gameOverModal {
+    background: #CFD8DC;
+    border-radius: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .header{
+    border-radius: 1rem 1rem 0 0;
+    padding-top: 1rem;
+    width: 100%;
+    height: 5.5rem;
+    color: #fff;
+    background: radial-gradient(circle at 1.8% 4.8%, rgb(17, 23, 58) 0%, rgb(58, 85, 148) 90%);
+  }
+
+  .body{
+    padding: 2rem 1rem 3rem 1rem;
+  }
+  
+  .image{
+    display: flex;
+    justify-content: center;
+  }
+
+  .time{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5px;
+  }
+
+  .tittle{
+    font-weight: bold;
+    border-radius: 7px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    padding-bottom: 1px;
+    color: #030303;
+  }
+  .gameOverModal p {
+    margin-top: 10px;
+  }
+
+  .button{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button button {
+    background: radial-gradient(circle at 1.8% 4.8%, rgb(17, 23, 58) 0%, rgb(58, 85, 148) 90%);
+    color: #fff;
+    padding: 0px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin: 5px;
+    box-shadow: 0px 4px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+  }
+  .gameOverModal button:hover{
+    transition: 0.5s;
+    transform: scale(1.05);
+    background: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  }
+  
+  /* Agrega esta clase para la superposición de fondo detrás del modal */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    z-index: 1000; /* Asegura que la superposición esté sobre el contenido */
+  }
+
+  .dirigiendo{
+    font-weight: bold;
+    color: #1976d2;
+  }

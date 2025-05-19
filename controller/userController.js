@@ -82,10 +82,10 @@ exports.createUser = async(req, res) => {
         email, 
         password,  
         country,
-        imagenBandera
+        flags
     } = req.body;
     //validations
-    
+    console.log('createUser', req.body);
       try {
         
         if(!name){
@@ -109,8 +109,8 @@ exports.createUser = async(req, res) => {
     
     
         //check user
-        const existingUser = await userService.getUserFind({email})
-    
+        const existingUser = await userService.getUserFind(email)
+        console.log('existingUser', existingUser);
         //existing user
         if(existingUser){
           throw new Error('Already Register please login');
@@ -138,8 +138,8 @@ exports.createUser = async(req, res) => {
     } catch (error) {
         res.status(500).send({
             success: false,
-            message: 'Error in Register',
-            error
+            message: `Error in Register: ${error}`,
+            error: error.message
         });
     }
 }

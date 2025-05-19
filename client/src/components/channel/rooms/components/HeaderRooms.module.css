@@ -1,0 +1,108 @@
+.desafio{
+    display: flex;
+    height: 3rem;
+    justify-content: center;
+    background: radial-gradient(circle at 1.8% 4.8%, rgb(17, 23, 58) 0%, rgb(58, 85, 148) 90%);
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 1rem 1rem 0 0;
+    -webkit-box-shadow: 0px 0px 0px 1px #4e5883 inset, 0px 0px 0px 2px #748ab6 inset, 0px 4px 0px 0px #4a617c, 0px 5px 0px 0px #354256, 0px 8px 0px 0px rgba(0,0,0,.15);
+    -moz-box-shadow: 0px 0px 0px 1px #4e5883 inset, 0px 0px 0px 2px #748ab6 inset, 0px 4px 0px 0px #4a617c, 0px 5px 0px 0px #354256, 0px 8px 0px 0px rgba(0,0,0,.15);
+    -ie-box-shadow: 0px 0px 0px 1px #4e5883 inset, 0px 0px 0px 2px #748ab6 inset, 0px 4px 0px 0px #4a617c, 0px 5px 0px 0px #354256, 0px 8px 0px 0px rgba(0,0,0,.15);
+    box-shadow: 0px 0px 0px 1px #4e5883 inset, 0px 0px 0px 2px #748ab6 inset, 0px 4px 0px 0px #4a617c, 0px 5px 0px 0px #354256, 0px 8px 0px 0px rgba(0,0,0,.15);
+  }
+
+  .desafio h5{
+    margin-top: 5px;
+    text-shadow: rgba(0,0,0,.5) 0px -1px 0px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #dafffe;
+  }
+
+  .SignOut{
+    position: relative;
+    height: 100%;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .SignOut:hover{
+    color: #fff9c4;
+  }
+  .FaSignOutAlt{
+    transform: rotate(180deg);
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+  }
+
+  .dropdown{
+    border: 1px solid #4e5883;
+    border-radius: .5rem;
+    position: absolute;
+    margin-top: 6.5rem;
+    margin-left: 6rem;
+    z-index: 15;
+    width: 8rem;
+    background: radial-gradient(circle at 1.8% 4.8%, rgb(17, 23, 58) 0%, rgb(58, 85, 148) 90%);
+    display: flex;
+    flex-direction: column;
+  }
+  .dropdown p {
+    width: 100%;
+    margin: auto;
+    padding: 5px;
+  }
+  .dropdown p:hover{
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+
+   
+  .fastContainer{
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+  .fast{
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+  }
+
+  .setting{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+    width: 3rem;
+    height: 100%;
+  }
+
+  .setting:hover{
+    color: #fff9c4;
+  }
+  .FaCog{
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+  }
+  .titleWithIcon {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    width: 95%;
+  }
+
+  .titleWithIcon img{
+    width: 40px;
+    margin-right: 10px;
+  }
+  
+  .titleWithIcon h5 {
+    margin-right: 20px; /* Ajusta el margen para dar espacio entre el título y el SVG */
+  }

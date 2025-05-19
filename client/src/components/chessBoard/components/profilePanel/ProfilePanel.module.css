@@ -1,0 +1,57 @@
+.row{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+
+.username{
+    color: aliceblue;
+    display: inline-block;
+    text-align: start;
+    max-width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+    white-space: nowrap;
+    margin-right: .2rem;
+    font-family: "ADLaM Display", serif;
+}
+.elo{
+    color: aliceblue;
+    display: inline-block;
+    text-align: start;
+    width: 40%;
+}
+
+.flags{
+  padding-left: .5rem;
+ }
+
+ .containerTimer{
+    width: 35%;
+    height: 90%;
+    display: flex;
+ }
+
+ .timer{
+    background-color: rgba(255,255,255, 0.8);
+    height: 70%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .textTimer{
+    color: black;
+    font-weight: 600;
+    font-size: 24px;
+    margin-left: 1rem;
+ }

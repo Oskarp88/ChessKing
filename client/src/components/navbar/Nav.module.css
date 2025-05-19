@@ -1,0 +1,337 @@
+
+.navbar{
+  position: fixed;
+  width: 100%;
+  display: flex;
+  z-index: 999;
+}
+
+.containerMoneda{
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.moneda{
+  width: 8rem;
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.moneda img{
+  width: 60px;
+  z-index: 1;
+  margin-bottom: 4px;
+}
+.dinero{
+  position: absolute;
+  width: 6rem;
+  background: rgba(0,0,0,.5);
+  padding: 3px;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 2rem;
+  border-radius: 0 1rem 1rem 0;
+  box-shadow: 0px -3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+}
+.dinero span{
+  margin-right: 5px;
+  color: #fff;
+  text-shadow: rgba(0,0,0,.7) 0px -1px 0px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.container{
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+
+.profileContainer{
+  width: 18rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.containerProfile{
+  position: relative;
+  background-color: #2e86c1;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 0px 0px 1px #4e6883 inset, 0px 0px 0px 2px #7491b6 inset, 0px 4px 0px 0px #4a697c, 0px 5px 0px 0px #354256, 0px 8px 0px 0px rgba(0,0,0,.15);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.containerProfile:hover{
+  transition: 0.5s;
+  transform: scale(.95);
+  
+}
+
+.inf{
+  z-index: 10;
+  color: #fff;
+  text-shadow: rgba(0,0,0,.5) 0px -1px 0px;
+  font-size: 18px;
+  font-weight: 700;
+  width: 70%;
+}
+
+.name{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 5px;
+}
+
+.textName{
+  text-decoration: none;
+  color: #ebf5fb;
+}
+
+.div1{
+  position: absolute;
+  background-color: #2874a6;
+  height: 90%;
+  width: 98%;
+  margin-left: 2.5px;  
+  border-radius: 1rem 1rem 1rem 1rem;
+}
+
+.div2{
+  position: absolute;
+  background-color: #2e86c1;
+  height: 50%;
+  width: 96%;
+  margin-left: 5.5px; 
+  margin-bottom: 1.6rem; 
+  border-radius: .8rem .8rem .3rem .3rem;
+
+}
+
+.ligaContainer{
+  position: relative;
+  width: 65px;
+  height: 65px;
+  margin-left: .3rem;
+  margin-right: .5rem;
+}
+
+.imageLiga {
+  position: relative;
+  width: 100%; /* Asegúrate de que ambos elementos ocupen todo el contenedor */
+  height: 100%;
+  margin-left: 1rem;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+
+.liga{
+  position: absolute;
+  height: 100%;
+  z-index: 1;
+}
+.userprofile {
+  position: relative;
+  width: 65px;
+  height: 65px;
+  margin-left: .3rem;
+  margin-right: .5rem;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%; /* Asegúrate de que ambos elementos ocupen todo el contenedor */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  width: 97%;
+  height: 97%;
+  object-fit: cover; /* Ajusta la imagen para que se vea bien en el contenedor */
+  z-index: 1; /* Foto en la capa inferior */
+}
+
+.marco {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta el marco para que coincida con la foto */
+  z-index: 2; /* Marco en la capa superior */
+}
+
+.insignias{
+
+}
+
+.insignias img{
+  width: 2rem;
+}
+
+.logo{
+  width: 12rem;
+  cursor: pointer;
+}
+
+.logo:hover{
+  transition: 0.5s;
+  transform: scale(1.2);
+ }
+
+ .navlink{
+  color: #fff !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+
+  border-radius: .2rem;
+  font-size: 18px !important;
+  text-decoration: none;
+ }
+
+ .navlink:hover{
+  background-color: rgba(0,0,0,.15) !important ;
+ }
+
+ .dropdownSpan{
+   color: aliceblue !important;
+   font-size: 18px !important;
+   padding: 5px 10px 5px 10px;
+   border-radius: .2rem;
+ }
+
+ .dropdownSpan:hover{
+  background-color: rgba(0,0,0,.15) !important;
+ }
+
+ .dropdownSpan2{
+  font-size: 18px !important;
+  padding: 5px 10px 5px 10px;
+  border-radius: .2rem;
+ }
+
+ .dropdownSpan2:hover{
+  background-color: rgba(0,0,0,.15) !important;
+ }
+ .theme{
+   margin-left: 10px;
+ }
+
+ .color{
+   margin-left: 10px;
+ }
+
+ .item:hover{
+  background-color: rgba(0,0,0,.15) !important;
+ }
+ @media (max-width: 1300px){
+    .navbar{
+      flex-direction: column;
+    }
+    .containerMoneda{
+      width: 80%;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .container{
+      width: 85%;
+      justify-content: flex-end;
+    }
+    .profileContainer{
+      margin-top: 0;
+    }
+ }
+ @media (max-width: 966px){
+   .navbar{
+    margin: 0;
+    width: 100%;
+   }
+ }
+ @media (max-width: 700px){
+  .navbar{
+    width: 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  .container{
+    width: 100%;
+  }
+  .insignias{
+    font-size: 13px;
+    margin-right: 2px;
+  }
+  .profileContainer{
+    width: 50%;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 500px){
+  .userprofile, .ligaContainer{
+    width: 50px;
+    height: 50px;
+  }
+  
+  .name span{
+    font-size: 15px;
+  }
+  .imageLiga{
+    margin-left: .3rem;
+    background-color: #2e86c1;
+  }
+  .profileContainer{
+    height: 4rem;
+  }
+  .insignias img{
+    width: 1.5rem;
+    margin-bottom: .3rem;
+  }
+  .moneda{
+    width: 7rem;
+  }
+  .moneda img{
+    width: 48px;
+  }
+  .dinero{   
+    padding: 1px;
+    width: 4.5rem;
+  }
+  .dinero span{
+    margin-right: 5px;
+    color: #fff;
+    text-shadow: rgba(0,0,0,.7) 0px -1px 0px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 393px) {
+   .name span{
+     font-size: 13px;
+     font-weight: 600;
+   }
+}

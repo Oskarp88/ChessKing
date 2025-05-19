@@ -1,0 +1,105 @@
+.header{
+    border-radius: 1rem 1rem 0 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+    height: 5.5rem;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    background: radial-gradient(circle at 1.8% 4.8%, rgb(17, 23, 58) 0%, rgb(58, 85, 148) 90%);
+  }
+
+  .header p{
+    font-size: 14px;
+    font-weight: 400;
+ }
+
+ .body{
+    padding: .5rem 1rem 3rem 1rem;
+    
+  }
+
+  .board{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+ .gameOverModal {
+    background: #CFD8DC;  
+    border-radius: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .gameOverModal p {
+    margin-top: 10px;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Asegura que la superposición esté sobre el contenido */
+  }
+
+  .icon{
+    margin-left: 10px;
+    margin-top: -4px;
+  }
+
+  .coloroptions {
+    margin: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 11rem;
+  }
+
+  
+.close{
+  cursor: pointer;
+  margin-left: 90%;
+  color: #fff;
+}
+
+
+  .coloroption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+    margin-bottom: 5px; /* Espacio entre los tableros */
+  }
+
+  .coloroption.selected .colorboard {
+    border: 2px solid #FF0000;
+  }
+
+  .even {
+    margin-right: 0; /* Elimina el margen derecho en los índices pares (0, 2, 4, etc.) */
+  }
+  
+  .odd {
+    margin-right: 20px; /* Restablece el margen derecho en los índices impares (1, 3, 5, etc.) */
+  }
+
+  .colorrow {
+    display: flex;
+    align-items: center;
+  }
+
+  .colorboard {
+    width: 25px; /* Ajusta el tamaño según tus preferencias */
+    height: 25px; /* Ajusta el tamaño según tus preferencias */
+    border: 1px solid #000;
+    cursor: pointer;
+  }
+  

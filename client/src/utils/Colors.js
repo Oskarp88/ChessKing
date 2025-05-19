@@ -1,0 +1,61 @@
+import { colorManager } from "./constants/colorsManager";
+
+export const colorChess = [
+    { 
+      id: 1, 
+      navbar: colorManager.blueDark7,
+      boxShadow: '0 5px 15px rgba(7, 7, 235, 0.2), -5px 0 20px rgba(1, 36, 141, 0.2)',
+      border: 'solid 2px #fff',
+      border2: 'solid 1px #1565C0',
+      fondo: 'radial-gradient(circle at 48.7% 44.3%, rgb(214, 234, 248 ) 0%, rgb(133, 193, 233) 22.9%, rgb(31, 97, 141) 76.7%, rgb(21, 67, 96) 100.2%)',
+      fondo2: '#d6eaf8 ',
+      fondo_3: 'linear-gradient(178deg, rgba(201, 234, 252, 0.51) 14.9%, rgba(139, 192, 216, 0.73) 80%',
+      fondo4: '#d6eaf8 ',
+      titulo: '#2471a3',
+      color: '#273746',
+      color1: '#fff',
+      spinner: '4px solid rgba(23, 21, 21, 0.5)',
+      colorBorder: '#fff',
+      background_login: 'linear-gradient(to top, rgb(35, 33, 33) 0%, rgb(39, 135, 213) 100%)',
+      fondoChat: '/fondos/fondo_chat1.jpg',
+      fondoChat01: '/fondos/fondo_chat01.jpg',
+      fondoUsers: '/icon/userslight.png',
+      colorInvertido: '#0066CC',
+      fondoModal: 'radial-gradient(circle at 18.7% 37.8%, rgb(250, 250, 250) 0%, rgb(225, 234, 238) 90%)',
+      fast: '#0e6251',
+    },
+    { 
+      id: 2, 
+      navbar: 'linear-gradient(to right, #434343 0%, black 100%)',
+      boxShadow: '0 5px 15px rgba(124, 124, 160, 0.2), -5px 0 20px rgba(249, 250, 252, 0.2)',
+      border: 'solid 2px #1565C0',
+      border2: 'solid 1px #fff',
+      fondo: 'linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%)',
+      fondo_3: 'linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%)',
+      fondo2: 'linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%)',
+      fondo4: 'radial-gradient(circle at 50.3% 44.5%, rgb(116, 147, 179) 0%, rgb(62, 83, 104) 100.2%)',
+      titulo: '#85C1E9 ',
+      color: '#fff',
+      color1: '#85C1E9',
+      spinner: '4px solid rgba(255, 255, 255, 0.9)',
+      colorBorder: '#85C1E9',
+      background_login: 'linear-gradient(to top, rgba(35, 33, 33, 0.2) 0%, rgba(7, 43, 72, 0.7) 100%)',
+      fondoChat: '/fondos/fondo_chat.jpg',
+      fondoChat01: '/fondos/fondo_chat02.jpg',
+      fondoUsers: '/icon/userswhite.png',
+      colorInvertido: '#fff',
+      fondoModal: 'linear-gradient(to right, #d7d2cc 0%, #304352 100%);',
+      fast: '#52be80'
+    }
+  ]
+
+ export const colorBoard = [
+    { id: 0, blackRow: '#2E86C1', whiteRow: '#ebecd0', blackTile: 'black-tile-azul', whiteTile: 'white-tile-azul', register: 'linear-gradient(89deg, rgb(21, 74, 189) 0.1%, rgb(26, 138, 211) 51.5%, rgb(72, 177, 234) 100.2%)' },
+    { id: 1, blackRow: '#779556', whiteRow: '#ebecd0', blackTile: 'black-tile-verde', whiteTile: 'white-tile-verde', register: 'radial-gradient(circle at -1% 57.5%, rgb(19, 170, 82) 0%, rgb(0, 102, 43) 90%)' },
+    { id: 2, blackRow: '#276d78', whiteRow: '#bbe4e9', blackTile: 'black-tile-verdeGris', whiteTile: 'white-tile-verdeGris', register: 'radial-gradient(circle at 5.6% 54.5%, rgb(47, 71, 79) 0%, rgb(159, 188, 198) 83.6%)' },
+    { id: 3, blackRow: '#e7617e', whiteRow: '#ffcbcb', blackTile: 'black-tile-rosa', whiteTile: 'white-tile-rosa', register: 'linear-gradient(to right, #ff758c 0%, #ff7eb3 100%)' },
+    { id: 4, blackRow: '#f96d00', whiteRow: '#ffebbb', blackTile: 'black-tile-naranja', whiteTile: 'white-tile-naranja', register: 'linear-gradient(105.6deg, rgb(246, 220, 111) 12.4%, rgb(222, 104, 104) 78.7%)' },
+    { id: 5, blackRow: '#810404', whiteRow: '#f0bdbd', blackTile: 'black-tile-rojo', whiteTile: 'white-tile-rojo', register: 'linear-gradient(98.3deg, rgb(0, 0, 0) 10.6%, rgb(135, 16, 16) 97.7%)' },
+    { id: 6, blackRow: '#004445', whiteRow: '#d1ebe7', blackTile: 'black-tile-verdeOscuro', whiteTile: 'white-tile-verdeOscuro', register: 'radial-gradient(759px at 14% 22.3%, rgb(10, 64, 88) 0%, rgb(15, 164, 102) 90%)' },
+    { id: 7, blackRow: '#263849', whiteRow: '#c8dad7', blackTile: 'black-tile-azulOscuro', whiteTile: 'white-tile-azulOscuro', register: 'linear-gradient(177.9deg, rgb(58, 62, 88) 3.6%, rgb(119, 127, 148) 105.8%)' },
+  ];

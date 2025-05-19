@@ -1,5 +1,3 @@
-const Avatar = require("../model/Avatar");
-const Frame = require("../model/Frames");
 const User = require("../model/User");
 
 class UserRepository {
@@ -29,19 +27,7 @@ class UserRepository {
   
     async deleteUser(id) {
       return await User.findByIdAndDelete(id);
-    }
-
-    async getAllFrames(){
-      return await Frame.find({});
-    }
-
-    async getAllAvatars(){
-      return await Avatar.find({});
-    }
-
-    async getAllForLeague(league){
-     return await User.find({ league }, '-partida').sort({ coins: -1 });
-    }
+    }  
   }
   
   module.exports = new UserRepository();

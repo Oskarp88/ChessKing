@@ -1,0 +1,235 @@
+/* Estilos generales del sidebar */
+.sidebar {
+    height: 95%;
+    margin-top: 1.2rem;
+    margin-left: .5rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    width: 60px;
+    color: aliceblue;
+    background-color: radial-gradient(circle at 48.7% 44.3%, #2e86c1 0%, #2874a6 22.9%, rgb(38, 76, 140) 76.7%, rgb(31, 63, 116) 100.2%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: width 0.3s ease;
+    box-shadow: 0px 0px 0px 1px #4e6383 inset, -5px -4px 0px 0px #7495b6 inset, 0px 0px 4px 0px #4a677c, 1px 5px 0px 0px #354156, 6px 8px 0px 0px rgba(0,0,0,.15);
+    z-index: 1000;
+  }
+
+  .menu-dropdown .dropdown-menu {
+    background-color: #5dade2; /* Cambia este color por el que desees */
+    border: none; /* Elimina el borde si es necesario */
+  }
+
+  .menu-dropdown-dark .dropdown-menu{
+    background-color: #2c3e50;
+    border: none; /* Elimina el borde si es necesario */
+  }
+  .sidebar.mobile-open {
+    width: 210px;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 3rem;
+  }
+  
+  .menu-item {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .menu-item-open{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    color: white;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .menu-item:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+  }
+
+  .menu-item-open:hover{
+    background-color: rgba(0, 0, 0, 0.15);  
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    width: 95%;
+    margin-right: 3.5px;
+  }
+  
+  .icon {
+    width: 30px;
+    height: 30px;
+    font-size: 24px;
+    margin-top: auto;
+  }
+  
+  .text {
+    display: none;
+  }
+  
+  .item:hover{
+    background-color: rgba(0, 0, 0, 0.15);
+    width: 80%;
+  }
+  /* Muestra el texto cuando el sidebar esté abierto */
+  .sidebar.mobile-open .text {
+    display: block;
+    margin-left: 20px;
+    white-space: nowrap;
+    color: aliceblue;
+  }
+  
+  /* Botón de menú hamburguesa para pantallas pequeñas */
+  .sidebar-icon {
+    display: none;
+  }
+
+  .containerLogo{
+    width: 100%;
+  }
+
+  .logoClose{
+    display: none;
+  }
+  .logoContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+ .logo{
+    display: inline;
+    width: 10rem;
+    
+  }
+  .logo:hover{
+    transition: 0.5s;
+    transform: scale(1.2);
+   }
+  .containerPhoto{
+    background-color: rgba(0, 0, 0, 0.15);
+    width: 91%;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem 2rem 1rem 1rem;
+    margin-right: 3px;
+    margin-left: .2px;
+    margin-bottom: 3px;
+  }
+
+  .userprofile {
+    position: relative;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  
+  }
+  
+  .imageContainer {
+    position: relative;
+    width: 100%; /* Asegúrate de que ambos elementos ocupen todo el contenedor */
+    height: 100%;
+  }
+  
+  .photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen para que se vea bien en el contenedor */
+    z-index: 1; /* Foto en la capa inferior */
+  }
+  
+  .marco {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta el marco para que coincida con la foto */
+    z-index: 2; /* Marco en la capa superior */
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 0;
+    }
+  
+    .sidebar.open {
+      width: 250px;
+      z-index: 1000;
+    }
+
+    
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-top: 1rem;
+    }
+  
+    .sidebar-icon {
+      display: block;
+      color: #fff;
+      border-radius: 50%;
+      background-color: #2874a6;
+      padding: .5rem;
+      margin-left: auto;
+      margin-top: 10px;
+      margin-right: auto;
+      cursor: pointer;
+    }
+    .iconTop{
+      margin-top: -1.1rem;  
+    }
+    .sidebar-icon .bars{
+      width: 40px;
+      height: 40px;
+    }
+
+    .sidebar-icon .fatimes{
+      width: 25px;
+      height: 25px;
+    }
+    
+    /* Estilos para el sidebar en pantallas pequeñas (con el menú hamburguesa) */
+    .sidebar.mobile-open {
+      width: 210px;
+    }
+
+  }
+
+     @media (max-width: 966px){
+    .sidebar-icon .bars{
+      width: 28px;
+      height: 28px;
+    }
+  } 
+
+  
+  

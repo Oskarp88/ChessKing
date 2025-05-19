@@ -1,0 +1,27 @@
+.containerfluid {
+    margin: 3rem;
+    padding: 3rem;
+    color: aliceblue;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .colmd3 {
+    flex: 0 0 25%;
+  }
+  
+  .colmd9 {
+    flex: 0 0 75%;
+  }
+  
+  .card {
+    width: 75%;
+    padding: 1.5rem;
+  }
+  
+  .card h3 {
+    margin-bottom: 1rem;
+  }
+  

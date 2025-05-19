@@ -1,33 +1,13 @@
 const express = require('express');
-const { 
-  getUser, 
-  getAllUser, 
-  protectedUser, 
-  createUser, 
-  forgotPassword, 
-  resetPassword, 
-  roleUser, 
-  updateUser, 
-  statsUser, 
-  deleteUser, 
-  userElo, 
-  getUserBandera, 
-  getRatingBlitz,
-  getRatingBullet,
-  getAllFrames,
-  getAllAvatars,
-  postUserExist,
-  getRatingRapid,
-  getRatingClassical,
-  leagueResults} = require('../controllers/userController');
 const { requireSignIn, isAdmin } = require('../middleware/isAdmin');
+const { getUser, getAllUser, protectedUser, postUserExist, createUser, forgotPassword, resetPassword, roleUser, getUserBandera, updateUser, deleteUser, statsUser, userElo, getRatingClassical, getRatingRapid, getRatingBlitz, getRatingBullet } = require('../controller/userController');
 const userRouter = express.Router();
 
 userRouter.get('/user/:id', getUser);
 userRouter.get('/users', getAllUser);
 userRouter.get('/user-auth', requireSignIn, protectedUser);
 userRouter.post('/userExist', postUserExist);
-userRouter.post('/user', createUser);
+userRouter.post('/user/register', createUser);
 userRouter.post('/user/forgot-password', forgotPassword);
 userRouter.post('/user/reset-password', resetPassword);
 userRouter.put('admin/dashboard/users/:id', isAdmin, roleUser);

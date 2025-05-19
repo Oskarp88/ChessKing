@@ -1,0 +1,316 @@
+.userprofile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+}
+  
+  .close{
+    cursor: pointer;
+    margin-left: 0;
+    color: #aed6f1;
+  }
+  
+  .close:hover{
+    color:#3498db;
+  }
+
+  .header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .containerMoneda{
+    background: rgba(0,0,0,.3);
+    box-shadow: 0px -3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+    width: 80%;
+    height: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+    border-radius: .4rem .4rem .4rem .4rem;
+  }
+  .containerMoneda img{
+    width: 30px;
+    height: 30px;
+  }
+  .dinero{
+    width: 100%;
+    padding: 3px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: .2rem;
+  }
+  .dinero span{
+    margin-right: 5px;
+    color: #fff;
+    text-shadow: rgba(0,0,0,.7) 0px -1px 0px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .imageContainerModal {
+    position: relative;
+    width: 6rem; /* Asegúrate de que ambos elementos ocupen todo el contenedor */
+    height: 6rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: .5rem;
+  }
+  .photoImage {
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    width: 96%;
+    height: 96%;
+    object-fit: cover; /* Ajusta la imagen para que se vea bien en el contenedor */
+    z-index: 1; /* Foto en la capa inferior */
+  }
+  .marco {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta el marco para que coincida con la foto */
+    z-index: 2; /* Marco en la capa superior */
+  }
+  
+  .gameOverModal {
+    background: radial-gradient(circle at 10% 20%, rgb(20, 77, 118) 0%, rgb(0, 168, 232) 90%);  
+    padding: 20px;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 20rem;
+    height: 40rem;
+    box-shadow: 0px 0px 0px 1px #4e8381 inset, 0px 0px 0px 2px #74b6b4 inset, 0px 4px 0px 0px #4a7c7b, 0px 5px 0px 0px #355655, 0px 8px 0px 0px rgba(0,0,0,.15);
+
+  }
+  
+  .gameOverModal h2 {
+    color: #90CAF9; 
+  }
+  .gameOverModal p {
+    margin-top: 10px;
+  }
+  
+  .buttons{
+    display: flex;
+  }
+  
+  .gameOverModal button {
+    font-weight: bold;
+    width: 8rem;
+    background: linear-gradient(89deg, rgb(21, 74, 189) 0.1%, rgb(26, 138, 211) 51.5%, rgb(72, 177, 234) 100.2%);    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    margin: 5px;
+  }
+  
+  .gameOverModal button:hover {
+    background: linear-gradient(67.6deg, rgb(225, 242, 254) -2.8%, rgb(193, 224, 250) 44.6%, rgb(19, 116, 197) 102.4%);
+     width: 8.1rem;
+  }
+  
+  /* Agrega esta clase para la superposición de fondo detrás del modal */
+  .overlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    position: fixed; /* Para que cubra toda la ventana, incluso si se desplaza */
+    z-index: 9999;
+  }
+  
+  .profileSidebar{
+      margin-top: 5px;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      border-width: 10px;
+      border-style: solid;
+      border-image: linear-gradient(109.5deg, rgb(13, 11, 136) 9.4%, rgb(86, 255, 248) 78.4%)1;  
+      border-radius: inherit;
+      margin-bottom: 5px;
+    }
+    
+    .userprofile {
+      display: flex;
+      align-items: center;
+      border-radius: 10px;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 5px;
+    }
+  
+    .username{
+      display: flex;
+      margin: auto;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      width: 80%;
+      height: 28px;
+      box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+    }
+    .username span{
+      margin-right: 1rem;    
+    }
+    .insignia{
+      margin-bottom: auto;
+      width: 23px;
+      height: 23px;
+    }
+    .bandera{
+      width: 1.5rem;
+      height: 1rem;
+      margin-right: 5px;
+    }
+  
+    .area{
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin: 5px;
+      width: 100%;
+    }
+  
+    .subArea{
+      display: grid;
+      align-items: flex-start;
+      justify-content: flex-start;
+      border-radius: 5px;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+    }
+  
+    .subArea span{
+      margin-left: 5px;
+    }
+  
+    .historial{
+      margin-top: 10px;
+    }
+  
+    .historial button{
+      background: #3498db;
+      display: flex;
+      align-items: center;
+      align-items: center;
+      margin: 0;
+      width: 100%;
+      height: 2rem;
+      box-shadow: 0px 0px 0px 1px #4e7083 inset, 0px 0px 0px 2px #7487b6 inset, 0px 4px 0px 0px #4a567c, 0px 4px 0px 0px #353f56, 0px 8px 0px 0px rgba(0,0,0,.15);
+    }
+  
+    .historial button:hover{
+      width: 100%;
+      background: #5785ba !important;
+    }
+  
+    .historial p{
+      margin-left: 10px;
+      margin-top: 15px;
+    }
+    .historial img{
+      width: 20px;
+      height: 20px;
+    }
+  
+    .containerpartida{
+      display: flex; 
+      justify-content: space-between;
+      align-items: center; 
+      margin-bottom: 2px; 
+      height: 4rem;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    .gameType{
+      display: block;
+      margin-left: 5px;
+    }
+  
+    .datos{
+      width: 9rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+    }
+    .datos img{
+      width: 1rem;
+      height: .8rem;
+      margin-left: 5px;
+      margin-top: -2px;
+    }
+    .datos p{
+      color: #fff;
+    }
+    .result{
+      height: 100%;
+      width: 3rem;
+      display: flex;
+      align-items: center;
+    }
+    .valors{
+      height: 100%;
+      margin-top: -20px;
+    }
+    .estado{
+      width: 100%;
+      margin-top: -5px;
+    }
+  
+    .scrollableContainer {
+      max-height: 35rem; /* Altura máxima del contenedor */
+      overflow-y: auto; /* Activar scroll vertical cuando sea necesario */
+    }
+
+    .scrollableContainer h3{
+      text-shadow: rgba(0,0,0,.5) 0px -1px 0px;
+      font-size: 22px;
+      font-weight: 700;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .scrollableContainer span{
+      text-shadow: rgba(0,0,0,.5) 0px -1px 0px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    
+    .scrollableContent {
+      padding-right: 17px; /* Asegurar que el scroll no se superponga al contenido */
+    }
+    @media (max-width: 690px){
+      .tercerdiv {
+        margin: 0;
+        margin-top: 2rem;
+        padding: 2px;
+        width: 20rem;
+        height: 90%;
+      }
+    }
+  
+    @media (max-width: 431px){
+      .tercerdiv {
+        margin: 0;
+        margin-top: 2rem;
+        padding: 2px;
+        width: 15rem;
+        height: 30rem;
+      }
+    }

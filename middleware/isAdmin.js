@@ -13,27 +13,29 @@ const isAdmin = async (req, res, next) => {
           message: 'UnAuthorized Access'
       });
     }
-} catch (error) {
-    console.log(error);
-    res.status(401).send({
-        success: false,
-        error,
-        message: "Error in admin middelware",
-    })
-}
-  };
+  } catch (error) {
+      console.log(error);
+      res.status(401).send({
+          success: false,
+          error,
+          message: "Error in admin middelware",
+      })
+  }
+};
 
-   const requireSignIn = async(req, res, next) => {
+const requireSignIn = async(req, res, next) => {
     try {
         const decode =   JWT.verify(req.headers.authorization, process.env.SECRETA_JWT);
         req.user = decode;
+        console.log('token valido', req.user)
         next();
         
     } catch (error) {
         console.log(error)
     }
 }
-  module.exports = {
+  
+module.exports = {
     isAdmin, 
     requireSignIn
   };

@@ -1,0 +1,18 @@
+export const marcos = [
+    {marco: '/marcos/marco_001.png'},
+    {marco: '/marcos/marco_002.png'},
+    {marco: '/marcos/marco_003.png'},
+    {marco: '/marcos/marco_004.png'},
+    {marco: '/marcos/marco_005.png'},
+    {marco: '/marcos/marco_006.png'},
+    {marco: '/marcos/marco_007.png'},
+    {marco: '/marcos/marco_008.png'},
+    {marco: '/marcos/marco_009.png'},
+    {marco: '/marcos/marco_010.png'},
+    {marco: '/marcos/marco_011.png'},
+    {marco: '/marcos/marco_012.png'},
+    {marco: '/marcos/marco_013.png'},
+    {marco: '/marcos/marco_014.png'},
+    {marco: '/marcos/marco_015.png'},
+    {marco: '/marcos/marco_016.png'},
+]

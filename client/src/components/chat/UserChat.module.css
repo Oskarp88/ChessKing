@@ -1,0 +1,82 @@
+
+p{
+    color: white;
+}
+.singleUser{
+    background: rgb(0, 213, 235);
+    color: white;
+    cursor: pointer;
+    padding: 5px 7px;
+    border-radius: 1px;
+    margin-right: 0.5rem;
+    position: relative;
+}
+
+
+.userOnline {
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: rgb(0, 219, 0);
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  z-index: 2;
+}
+
+.profile{
+ 
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: grey;
+  border: solid 2px rgb(68, 68, 193);
+}
+
+.userCard {
+  margin-top: 15px;
+    color: white;
+    position: relative;
+    border-bottom: 1px solid rgb(100, 100, 100);
+    width: 380px;
+  }
+  
+  .userCard .textContent {
+    width: 170px;
+  }
+  
+  .userCard .name {
+    font-weight: 700;
+  }
+  
+  .userCard .text,
+  .userCard .date {
+    font-size: 14px;
+    color: rgb(180, 180, 180);
+  }
+
+  .messagesBox {
+    height: 85vh;
+  }
+  
+  .sendBtn {
+    border: none;
+    background: rgba(72, 112, 223, 1);
+    color: white;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+  }
+  
+  .thisUserNotifications {
+    display: flex;
+    background: #00bd9b;
+    height: 20px;
+    width: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+  }

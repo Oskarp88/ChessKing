@@ -1,0 +1,793 @@
+.display{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+  width: 100%;
+  overflow: auto;
+}
+.profile-container-chess{
+  display: flex;
+  flex-direction: column;
+  height: 98%; 
+  width: 550px;
+}
+
+#chessboard {
+  display: grid;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  background-color: blue;
+  width: 550px;
+  height: 550px;
+}
+
+#chessboard .tile {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#chessboard .black-tile-verde {
+  background-color: #779556;
+}
+
+#chessboard .white-tile-verde {
+  background-color: #ebecd0;
+}
+
+#chessboard .black-tile-verde .tile-content {
+  color: #ebecd0; /* Cambia el color del texto para casillas oscuras a blanco */
+  font-weight: bold;
+}
+
+ #chessboard .white-tile-verde .tile-content-num {
+   color: #779556; /* Cambia el color del texto para casillas claras a negro */
+   font-weight: bold;
+}
+#chessboard .white-tile-verde .tile-content {
+  color: #779556; /* Cambia el color del texto para casillas claras a negro */
+  font-weight: bold;
+}
+
+#chessboard .black-tile-verde .tile-content-num{
+ color: #ebecd0; /* Cambia el color del texto para casillas oscuras a blanco */
+ font-weight: bold;
+}
+
+
+#chessboard .black-tile-azul {
+  background-color: #2E86C1;
+}
+#chessboard .black-tile-azul .tile-content-num{
+  color: #D6EAF8; /* Cambia el color del texto para casillas oscuras a blanco */
+  font-weight: bold;
+ }
+#chessboard .black-tile-azul .tile-content {
+  color: #D6EAF8; /* Cambia el color del texto para casillas oscuras a blanco */
+  font-weight: bold;
+}
+#chessboard .white-tile-azul {
+  background-color: #ebecd0;
+}
+ #chessboard .white-tile-azul .tile-content-num {
+   color: #2E86C1; /* Cambia el color del texto para casillas claras a negro */
+   font-weight: bold;
+}
+#chessboard .white-tile-azul .tile-content {
+  color: #2E86C1; /* Cambia el color del texto para casillas claras a negro */
+  font-weight: bold;
+}
+
+#chessboard .black-tile-verdeGris {
+  background-color: #276d78;
+}
+#chessboard .black-tile-verdeGris .tile-content-num{
+  color: #bbe4e9; /* Cambia el color del texto para casillas oscuras a blanco */
+  font-weight: bold;
+ }
+#chessboard .black-tile-verdeGris .tile-content {
+  color: #bbe4e9; /* Cambia el color del texto para casillas oscuras a blanco */
+  font-weight: bold;
+}
+#chessboard .white-tile-verdeGris {
+  background-color: #bbe4e9;
+}
+ #chessboard .white-tile-verdeGris .tile-content-num {
+   color: #276d78; /* Cambia el color del texto para casillas claras a negro */
+   font-weight: bold;
+}
+#chessboard .white-tile-verdeGris .tile-content {
+  color: #276d78; /* Cambia el color del texto para casillas claras a negro */
+  font-weight: bold;
+}
+
+#chessboard .black-tile-rosa {
+  background-color: #e7617e;
+}
+#chessboard .black-tile-rosa .tile-content-num{
+  color: #ffcbcb; /* Cambia el color del texto para casillas oscuras a blanco */
+  font-weight: bold;
+ }
+#chessboard .black-tile-rosa .tile-content {
+  color: #ffcbcb; /* Cambia el color del texto para casillas oscuras a blanco */
+  font-weight: bold;
+}
+#chessboard .white-tile-rosa {
+  background-color: #ffcbcb;
+}
+ #chessboard .white-tile-rosa .tile-content-num {
+   color: #e7617e; /* Cambia el color del texto para casillas claras a negro */
+   font-weight: bold;
+}
+#chessboard .white-tile-rosa .tile-content {
+  color: #e7617e; /* Cambia el color del texto para casillas claras a negro */
+  font-weight: bold;
+}
+
+#chessboard .black-tile-naranja {
+  background-color: #f96d00;
+}
+#chessboard .black-tile-naranja .tile-content-num{
+  color: #ffebbb; /* Cambia el color del texto para casillas oscuras a blanco */
+  font-weight: bold;
+ }
+#chessboard .black-tile-naranja .tile-content {
+  color: #ffebbb; /* Cambia el color del texto para casillas oscuras a blanco */
+  font-weight: bold;
+}
+#chessboard .white-tile-naranja {
+  background-color: #ffebbb;
+}
+ #chessboard .white-tile-naranja .tile-content-num {
+   color: #f96d00; /* Cambia el color del texto para casillas claras a negro */
+   font-weight: bold;
+}
+#chessboard .white-tile-naranja .tile-content {
+  color: #f96d00; /* Cambia el color del texto para casillas claras a negro */
+  font-weight: bold;
+}
+
+#chessboard .black-tile-rojo{
+  background-color: #810404;
+}
+#chessboard .black-tile-rojo .tile-content-num{
+  color: #f0bdbd; /* Cambia el color del texto para casillas oscuras a blanco */
+  font-weight: bold;
+ }
+#chessboard .black-tile-rojo .tile-content {
+  color: #f0bdbd; /* Cambia el color del texto para casillas oscuras a blanco */
+  font-weight: bold;
+}
+#chessboard .white-tile-rojo {
+  background-color: #f0bdbd;
+}
+ #chessboard .white-tile-rojo .tile-content-num {
+   color: #810404; /* Cambia el color del texto para casillas claras a negro */
+   font-weight: bold;
+}
+#chessboard .white-tile-rojo .tile-content {
+  color: #810404; /* Cambia el color del texto para casillas claras a negro */
+  font-weight: bold;
+}
+
+#chessboard .black-tile-verdeOscuro{
+  background-color: #004445;
+}
+#chessboard .black-tile-verdeOscuro .tile-content-num{
+  color: #d1ebe7; /* Cambia el color del texto para casillas oscuras a blanco */
+  font-weight: bold;
+ }
+#chessboard .black-tile-verdeOscuro .tile-content {
+  color: #d1ebe7; /* Cambia el color del texto para casillas oscuras a blanco */
+  font-weight: bold;
+}
+#chessboard .white-tile-verdeOscuro {
+  background-color: #d1ebe7;
+}
+ #chessboard .white-tile-verdeOscuro .tile-content-num {
+   color: #004445; /* Cambia el color del texto para casillas claras a negro */
+   font-weight: bold;
+}
+#chessboard .white-tile-verdeOscuro .tile-content {
+  color: #004445; /* Cambia el color del texto para casillas claras a negro */
+  font-weight: bold;
+}
+
+#chessboard .black-tile-azulOscuro{
+  background-color: #263849;
+}
+#chessboard .black-tile-azulOscuro .tile-content-num{
+  color: #c8dad7; /* Cambia el color del texto para casillas oscuras a blanco */
+  font-weight: bold;
+ }
+#chessboard .black-tile-azulOscuro .tile-content {
+  color: #c8dad7; /* Cambia el color del texto para casillas oscuras a blanco */
+  font-weight: bold;
+}
+#chessboard .white-tile-azulOscuro {
+  background-color: #c8dad7;
+}
+ #chessboard .white-tile-azulOscuro .tile-content-num {
+   color: #263849; /* Cambia el color del texto para casillas claras a negro */
+   font-weight: bold;
+}
+#chessboard .white-tile-azulOscuro .tile-content {
+  color: #263849; /* Cambia el color del texto para casillas claras a negro */
+  font-weight: bold;
+}
+
+#chessboard .tile-content {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 2px;
+  /* Agrega espacio entre el contenido y el borde */
+}
+
+#chessboard .tile-content-num {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2px;
+  /* Agrega espacio entre el contenido y el borde */
+}
+
+#chessboard .tile-content p {
+  margin: 0;
+}
+
+#chessboard .tile .chess-piece {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+#chessboard .tile .chess-piece:hover{
+  cursor: grab;
+}
+
+#chessboard .tile .chess-piece:active{
+  cursor: grabbing;
+}
+
+#chessboard .tile .chess-piece{
+  width: 100%;
+  height: 100%;
+  background-size: cover; 
+}
+
+/* Estilos para la pieza seleccionada */
+#chessboard .chess-piece.selected {
+  transform: scale(1.2); /* Escala la pieza seleccionada */
+  z-index: 1; /* Coloca la pieza seleccionada encima de las demás */
+  cursor: pointer;
+}
+
+/* Agrega estilos para las casillas seleccionadas o marcadas */
+.selected-cell {
+background:  rgb(244, 253, 0);
+  color: #1e5226;
+  font-weight: bold;
+}
+
+.start-cell {
+  background: #f4d03f;
+  color: #e6ede7;
+  font-weight: bold;
+}
+
+.destination-cell {
+  background: #ffee58;
+  color: #e7ede8;
+  font-weight: bold;
+}
+
+.initial-cell {
+  background: #ffee58;}
+
+.king-check-cell  {
+  background-color: #e53935;
+  color: #e7ede8;
+  font-weight: bold;
+}
+
+.king-check-cell .chess-piece {
+  animation: shake .5s;
+}
+.chat{
+  height: 40%;
+  width: 100%;
+}
+.recordPlay{
+  display: none;
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0); /* Posición original */
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-2px); /* Mover hacia la izquierda */
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(2px); /* Mover hacia la derecha */
+  }
+}
+
+.possible-move::before {
+  content: "";
+  display: block;
+  width: 50%; /* Ajusta el tamaño del círculo */
+  height: 50%; /* Ajusta el tamaño del círculo */
+  background-color: black; /* Color del círculo */
+  border-radius: 50%; /* Para que sea un círculo */
+  opacity: 0.2;
+  position: absolute;
+  top: 50%; /* Alinea el círculo verticalmente en el centro */
+  left: 50%; /* Alinea el círculo horizontalmente en el centro */
+  transform: translate(-50%, -50%); /* Centra el círculo */
+  pointer-events: none; /* Evita que el círculo bloquee eventos de clic en la casilla */
+}
+
+.possible-capture::before{
+  position: absolute;
+  content: " ";
+  width: 100%;
+  height: 100%;
+  border: 5px solid rgba(0,0,0,0.2);
+  border-radius: 50%;
+}
+
+.dragging {
+  width: 75px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+/* Agrega estilos al modal de promoción */
+.promotion-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 2px solid #333;
+  z-index: 1000;
+}
+
+.promotion-modal h2 {
+  margin-bottom: 10px;
+}
+
+/* Estilos para las opciones de promoción */
+.promotion-options {
+  display: flex;
+}
+
+.promotion-option {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.promotion-option img {
+  width: 50px; /* Ajusta el tamaño según tus preferencias */
+  height: 50px; /* Ajusta el tamaño según tus preferencias */
+  border: 2px solid transparent;
+  transition: border 0.3s ease;
+}
+
+.promotion-option:hover img {
+  border: 2px solid #333;
+}
+
+
+.profileChekMate{
+  margin-top: 15px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: grey;
+  border: solid 10px #4caf50;
+}
+.game-over-modal {
+  background-color: rgba(15, 10, 10, 0.646);
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.game-over-modal h2 {
+  color: #ff0000; /* Red color for emphasis */
+}
+
+.game-over-modal p {
+  margin-top: 10px;
+}
+
+.game-over-modal button {
+  background-color: #4caf50; /* Green color for the button */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+/* Agrega esta clase para la superposición de fondo detrás del modal */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  z-index: 1; /* Asegura que la superposición esté sobre el contenido */
+}
+
+.move-container{
+  width: 30%;
+  height: 98%;
+  margin-left: 5px;
+}
+.register{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  background-color: #263849;
+  color: #dcfff5;
+  padding: 5px;
+  box-shadow: 0px -3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+  z-index: 1;
+  border-radius: .5rem .5rem 0 0;
+}
+.register div{ 
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: large;
+  border-left: 1px solid #fff;
+}
+.register div img{
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+.register h5{
+ 
+}
+
+/* @media (max-width: 1491px){
+  #chessboard {
+    grid-template-columns: repeat(8, 65px);
+    grid-template-rows: repeat(8, 65px);
+    width: 520px;
+    height: 520px;
+  }
+  
+  #chessboard .tile {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+@media (max-width: 1100px){
+  
+  .move-log-container {
+    height: 13.5rem;
+  }
+}
+
+@media (max-width: 1090px){
+  
+  .move-log-container {
+    height: 12.5rem;
+  }
+}
+
+@media (max-width: 970px){
+  
+  .move-container{  
+    width: 16rem;
+  }
+  .move-log-container {
+    height: 12.5rem;
+  }
+  .move-log li {
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+  }
+}
+
+@media (max-width: 850px){
+  #chessboard {
+    display: grid;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    grid-template-columns: repeat(8, 56.25px);
+    grid-template-rows: repeat(8, 56.25px);
+    background-color: blue;
+    width: 450px;
+    height: 450px;
+  }
+  #chessboard .tile {
+    width: 56.25px;
+    height: 56.25px;
+  }
+  .move-log-container {
+    height: 10rem;
+  }
+  .move-log li {
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+  }
+} */
+
+@media (max-width: 800px){
+  #chessboard {
+    width: 400px;
+    height: 400px;
+  }
+  .display{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .profile-container-chess{ 
+    width: 400px;
+    height: auto;
+  }
+.register{
+  height: 3rem;
+  
+}
+    
+  .move-container{
+    width: 400px;
+    height: auto;
+    margin-top: 5px;
+    margin-left: 0;
+  }
+  .tile-content{
+    font-size: 12px;
+  }
+  .tile-content-num{
+    font-size: 12px;
+  }
+  .chat{
+    height: 18rem;
+  }
+}
+
+@media (max-width: 450px){
+  .display{
+    padding: 0;
+
+  }
+  .profile-container-chess{
+    width: 100%;
+    height: 90%;
+    justify-content: center;
+  }
+  #chessboard {
+    margin: 0; /* Mantiene el mismo alto y ancho */
+  }
+  .register{
+    display: none;
+  }
+  .tile-content{
+    font-size: 9px;
+  }
+  .tile-content-num{
+    font-size: 9px;
+  }
+  .move-container{
+    display: none;
+  }
+  .chat{
+    display: none;
+  }
+  .recordPlay{
+    display: flex;
+    width: 100%;
+    height: 5%;
+  }
+ }
+
+
+
+
+
+
+/* @media (max-width: 380px){
+ 
+  /* #chessboard {
+    width: 360px;
+    height: 360px;
+  } */
+/* @media (max-width: 365px){
+  .profile-container-chess{
+    width: 340px;
+  }
+  #chessboard {
+    width: 340px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 350px){
+  .profile-container-chess{
+    width: 320px;
+  }
+  #chessboard {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+@media (max-width: 330px){
+  
+  #chessboard {
+    width: 300px;
+    height: 300px;
+  }
+} */
+
+/*@media (max-width: 410px){
+  #chessboard {
+    display: grid;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    grid-template-columns: repeat(8, 43.75px);
+    grid-template-rows: repeat(8, 43.75px);
+    background-color: blue;
+    width: 350px;
+    height: 350px;
+  }
+  #chessboard .tile {
+    width: 43.75px;
+    height: 43.75px;
+  }
+  .move-container{  
+    width: 350px;
+  }
+  .register h2{
+    font-size: 20px;
+  }
+  
+}
+
+@media (max-width: 380px){
+  #chessboard {
+    display: grid;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    grid-template-columns: repeat(8, 37.5px);
+    grid-template-rows: repeat(8, 37.5px);
+    background-color: blue;
+    width: 300px;
+    height: 300px;
+  }
+  #chessboard .tile {
+    width: 37.5px;
+    height: 37.5px;
+  }
+  .move-container{  
+    width: 300px;
+  }
+  .register h2{
+    font-size: 20px;
+  }
+  .move-log li {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  
+}
+
+@media (max-width: 768px) and (max-height: 1024px) and (min-width: 760px) and (min-height: 1024px){
+  #chessboard {
+    display: grid;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    grid-template-columns: repeat(8, 75px);
+    grid-template-rows: repeat(8, 75px);
+    background-color: blue;
+    width: 600px;
+    height: 600px;
+  }
+  #chessboard .tile {
+    width: 75px;
+    height: 75px;
+  }
+  .display{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+  .move-container{  
+    width: 600px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  .register{
+    margin-left: 0;
+  }
+  .move-log-container{
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 375px){
+  #chessboard {
+    display: grid;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    grid-template-columns: repeat(8, 37.5px);
+    grid-template-rows: repeat(8, 37.5px);
+    background-color: blue;
+    width: 300px;
+    height: 300px;
+  }
+  #chessboard .tile {
+    width: 37.5px;
+    height: 37.5px;
+  }
+  .move-container{  
+    width: 300px;
+  }
+  .tile-content{
+    font-size: 8px;
+  }
+  .tile-content-num{
+    font-size: 8px;
+  }
+} */
+
+
+/* @media (max-width: 320px){
+  #chessboard {
+    display: grid;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    grid-template-columns: repeat(8, 35px);
+    grid-template-rows: repeat(8, 35px);
+    background-color: blue;
+    width: 280px;
+    height: 280px;
+  }
+  #chessboard .tile {
+    width: 35px;
+    height: 35px;
+  }
+  .move-container{  
+    width: 280px;
+  }
+  .tile-content{
+    font-size: 8px;
+  }
+  .tile-content-num{
+    font-size: 8px;
+  }
+} */

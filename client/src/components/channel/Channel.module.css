@@ -1,0 +1,111 @@
+
+
+.contenedor {
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.imageBackground{
+  background-image: url('../../../public/fondos/fondoChannel.png');
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.flex{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.tabsContainer{
+  display: none;
+}
+
+.div2  {
+  width: 51%;
+  height: 100%;  
+  color: #ffffff;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.div3{
+  width: 51%;
+  height: 100%;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+
+@media (max-width: 950px) {
+  .contenedor {
+    height: 100dvh;
+ 
+  }
+  .flex{
+    display: none;   
+  }
+  
+  .tabsContainer{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+    background-size: cover;
+  }
+  .blocTabs{
+    margin-top: 10rem;
+    display: flex;
+    font-weight: bold;
+    /* background: radial-gradient(circle at 1.8% 4.8%, rgb(17, 23, 58) 0%, rgb(58, 85, 148) 90%); */
+    color: #ffffff;
+  }
+  .contentTabs{
+    height: 100%;
+  }
+  .tabs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px 5px 10px;
+    cursor: pointer;
+    width: 50%;
+    height: 3rem;
+    text-shadow: rgba(0,0,0,.5) 0px -1px 0px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .activeTabs{
+    border-bottom: none;
+  }
+  .content{
+    display: none;
+  }
+  .activeContent{
+    margin: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  .div2{
+    margin-top: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: aqua;
+  }
+  .div3{
+    width: 100%;
+  }
+}
+
+
+

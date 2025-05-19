@@ -1,0 +1,88 @@
+.containerInf{
+    width: 100%;
+    height: 24%;
+    color: aliceblue;
+    border-radius: 0 0 .5rem 0;
+  }
+
+  .containerDatos{
+    display: flex;   
+  }
+
+  .containerDatos img{
+    margin-top: 5px;
+    width: 20px;
+    height: 20px;
+    filter: invert(100%);
+  }
+
+  .tablas1{
+    margin-top: 10px;
+    display: flex;
+    margin-left: 5px;
+    cursor: pointer;
+    width: 50%;
+    height: 40%;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    padding: 5px;
+    color: #fff;
+  }
+  
+  .tabla1:hover{
+    border: 1px solid #f8f8f8 ;  
+  }
+
+  .a{
+    margin-left: 5px;
+    font-family: "ADLaM Display", serif;
+  }
+  
+  .containerAbandonar{
+    margin-top: 10px;
+    display: flex;
+    margin-left: 5px;
+    cursor: pointer;
+    width: 10rem;
+    height: 40%;
+    padding: 5px;
+  }
+  
+  .containerAbandonar:hover{
+    border: 1px solid #f8f8f8 ;  
+  }
+
+  .abandonar{
+    display: flex;
+     margin-left: 5px;
+   }
+   
+   .iconFlag{
+     margin-top: -1px;
+   }
+   
+   .partida{
+     margin-top: 2rem;
+     margin-left: 10px;
+
+   }
+   
+   .partida h3{
+    font-family: "ADLaM Display", serif;
+   }
+
+   @media (max-width: 800px){
+    .containerInf{
+      color: aliceblue;
+      border-radius: 0 0 .5rem .5rem;
+    }
+   }
+
+   @media (max-width: 450px){
+    .containerInf{
+    display: none;
+    }
+   }
+
+
+    

@@ -1,0 +1,105 @@
+ /* Notification */
+ .notifications {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .notifications:hover{
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+  }
+  
+  .notificationsIcon {
+    color: white;
+    cursor: pointer;
+    position: relative;
+  }
+ 
+ .div  img{
+    width: 35px;
+  }
+
+  
+  
+  .notificationsBox {
+    max-height: 50vh;
+    width: 300px;
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background: #181d31;
+    color: white;
+    z-index: 5;
+  }
+
+  .notificationsBox h3 {
+    font-weight: 700;
+    font-size: 20px;
+  }
+  
+  .notificationsHeader {
+    padding: 1rem;
+    padding-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .markAsRead {
+    cursor: pointer;
+    font-weight: 700;
+    opacity: 0.8;
+  }
+  
+  .notification {
+    font-size: 14px;
+    margin: 1rem 0;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid rgb(207, 207, 207);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+  }
+  
+  .notification.notRead {
+    background: #263159;
+  }
+  
+  .notificationTime {
+    margin-top: 0.2rem;
+    font-size: 12px;
+    color: #e0e0e0;
+  }
+  
+  .notificationCount {
+    display: flex;
+    background: #00bd9b;
+    height: 25px;
+    width: 25px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -10px;
+    right: -15px;
+  }
+  
+  .thisUserNotifications {
+    display: flex;
+    background: #00bd9b;
+    height: 20px;
+    width: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+  }

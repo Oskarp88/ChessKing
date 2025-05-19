@@ -28,18 +28,7 @@ class UserService {
     async deleteUser(id) {
       return await userRepository.deleteUser(id);
     }
-
-    async getFrames() {
-       return await userRepository.getAllFrames();
-    }
-
-    async getAvatars() {
-      return await userRepository.getAllAvatars();
-    }
-
-    async getLeagues(league){
-      return await userRepository.getAllForLeague(league);
-    }
+    
   }
   
   module.exports = new UserService();

@@ -1,0 +1,96 @@
+.moveLogContainer {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    color: #dcfff5;
+    overflow-y: scroll; /* Muestra barras de desplazamiento vertical */
+    scroll-behavior: smooth; /* Agrega un suave desplazamiento */
+    scroll-padding: 10px; /* Añade espacio para que el desplazamiento sea suave */
+  }
+
+  .recordPlay{
+    display: none;
+  }
+
+  .moveLog {
+    margin-top: 10px;
+    margin-bottom: 20px;  
+    width: 100%;
+  }
+  
+  .moveLog h2 {
+    font-size: 18px;
+    font-weight: bold;
+    
+  }
+  
+  .moveLog ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .moveLog li {
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 5px;
+    width: 100%;
+    padding-left: 10%;
+    height: 2rem;
+  }
+  
+  .moveLog li span{
+    margin-right: 15%;
+  }
+
+  .piezaMove{
+    width: 20px;
+    height: 20px;
+  }
+  
+  .moveLiWhite{
+    display: flex;
+    
+  }
+  
+  .moveLiBlack{
+    display: flex;
+  }
+
+  @media (max-width: 450px){
+    .moveLogContainer{
+      display: none;
+    }
+
+    .recordPlay{
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 100%;   
+    }
+    .movePlay{
+      width: 90%;
+      overflow-x: auto; 
+      white-space: nowrap; 
+    }
+    .ul{
+      display: flex;
+      list-style-type: none;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .moveLi{
+      display: flex;
+      margin-right: 5px;
+    }
+    .moveLi span{
+      color: #dcfff5;
+      font-weight: bold;
+    }
+
+    .move{
+      display: flex;
+      margin-right: 20px;
+    }
+
+   }
